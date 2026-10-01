@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Binge &amp; Bound</title>
+  <meta name="description" content="A club that reads one book and watches one show and one movie every month.">
+
+  <!-- Fonts from Google Fonts -->
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Bricolage+Grotesque:opsz,wght@12..96,500;12..96,800&family=Newsreader:ital,opsz,wght@0,6..72,400;0,6..72,600;1,6..72,400&display=swap" rel="stylesheet">
+
+  <link rel="stylesheet" href="style.css">
+</head>
+<body>
+  <a class="skip-link" href="#main">Skip to content</a>
+
+  <header class="site-header">
+    <a class="brand" href="index.html">Binge &amp; Bound</a>
+    <nav aria-label="Main">
+      <a href="index.html" aria-current="page">This month</a>
+      <a href="past.html">Past months</a>
+      <a href="recommend.html">Recommend</a>
+      <a href="reviews.html">Reviews</a>
+    </nav>
+  </header>
+
+  <main id="main">
+    <section class="hero">
+      <h1>Binge &amp; Bound</h1>
+      <p class="tagline">One book. One season. One movie. Every month.</p>
+    </section>
+
+    <!-- script.js fills this section in from data/months.json -->
+    <section id="this-month" aria-live="polite">
+      <p class="status">Loading this month's picks...</p>
+    </section>
+  </main>
+
+  <footer class="site-footer">
+    <p>Binge &amp; Bound is a club for friends who read, watch, and talk about it. Anyone can join.</p>
+    <!-- Change the link below to your real Instagram page -->
+    <p><a href="https://www.instagram.com/">Find us on Instagram</a></p>
+  </footer>
+
+  <script src="script.js"></script>
+</body>
+</html>

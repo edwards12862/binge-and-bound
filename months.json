@@ -1,0 +1,54 @@
+{
+  "months": [
+    {
+      "id": "2026-10",
+      "label": "October 2026",
+      "theme": "Strange new worlds",
+      "meetup": "Saturday, October 25 at 7pm",
+      "place": "Replace this with the meetup spot or a video call link",
+      "book": {
+        "title": "Project Hail Mary",
+        "creator": "Andy Weir",
+        "detail": "Science fiction novel",
+        "where": "Library, bookstore, or audiobook"
+      },
+      "show": {
+        "title": "Severance",
+        "creator": "Created by Dan Erickson",
+        "detail": "Season 1, 9 episodes",
+        "where": "Check where it's streaming"
+      },
+      "movie": {
+        "title": "Everything Everywhere All at Once",
+        "creator": "Daniel Kwan and Daniel Scheinert",
+        "detail": "Feature film, 2022",
+        "where": "Rent or stream"
+      }
+    },
+    {
+      "id": "2026-09",
+      "label": "September 2026",
+      "theme": "Love and loneliness",
+      "meetup": "Saturday, September 27 at 7pm",
+      "place": "Replace this with the meetup spot",
+      "book": {
+        "title": "Klara and the Sun",
+        "creator": "Kazuo Ishiguro",
+        "detail": "Novel",
+        "where": "Library, bookstore, or audiobook"
+      },
+      "show": {
+        "title": "Fleabag",
+        "creator": "Created by Phoebe Waller-Bridge",
+        "detail": "Season 1, 6 episodes",
+        "where": "Check where it's streaming"
+      },
+      "movie": {
+        "title": "Past Lives",
+        "creator": "Celine Song",
+        "detail": "Feature film, 2023",
+        "where": "Rent or stream"
+      }
+    }
+  ]
+}

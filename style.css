@@ -1,0 +1,386 @@
+/* ============================================================
+   Binge & Bound: style.css
+   The colors and fonts live in :root at the top. Change them
+   there and the whole site updates.
+   ============================================================ */
+
+:root {
+  /* Colors */
+  --paper: #eef0fb;       /* page background, a pale periwinkle */
+  --ink: #12142b;         /* text and the darkest band */
+  --cobalt: #2b3fd6;      /* the book band, like cloth binding */
+  --highlighter: #ffd43b; /* the show band */
+  --lilac: #c7ccf2;       /* text on the dark movie band */
+  --white: #ffffff;
+
+  /* Fonts */
+  --display: "Bricolage Grotesque", "Helvetica Neue", Arial, sans-serif;
+  --text: "Newsreader", Georgia, "Times New Roman", serif;
+
+  /* Side spacing that shrinks on small screens */
+  --gutter: clamp(1.25rem, 5vw, 4rem);
+}
+
+*,
+*::before,
+*::after {
+  box-sizing: border-box;
+}
+
+body {
+  margin: 0;
+  background: var(--paper);
+  color: var(--ink);
+  font-family: var(--text);
+  font-size: 1.15rem;
+  line-height: 1.65;
+}
+
+a {
+  color: var(--cobalt);
+  text-underline-offset: 0.2em;
+}
+
+/* Keyboard users can always see where they are */
+:focus-visible {
+  outline: 3px solid var(--cobalt);
+  outline-offset: 3px;
+}
+
+.skip-link {
+  position: absolute;
+  left: -999px;
+  top: 0.5rem;
+  background: var(--ink);
+  color: var(--white);
+  padding: 0.6rem 1rem;
+  z-index: 10;
+}
+
+.skip-link:focus {
+  left: 0.5rem;
+}
+
+
+/* ---------- Header and navigation ---------- */
+
+.site-header {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: baseline;
+  justify-content: space-between;
+  gap: 0.75rem 2rem;
+  padding: 1.25rem var(--gutter);
+}
+
+.brand {
+  font-family: var(--display);
+  font-weight: 800;
+  font-size: 1.3rem;
+  letter-spacing: -0.02em;
+  color: var(--ink);
+  text-decoration: none;
+}
+
+.site-header nav {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.4rem 1.75rem;
+}
+
+.site-header nav a {
+  font-family: var(--display);
+  font-weight: 500;
+  font-size: 1.05rem;
+  color: var(--ink);
+  text-decoration: none;
+}
+
+.site-header nav a:hover {
+  text-decoration: underline;
+  text-decoration-thickness: 2px;
+  text-underline-offset: 6px;
+}
+
+/* The link for the page you're on gets a thick underline */
+.site-header nav a[aria-current="page"] {
+  text-decoration: underline;
+  text-decoration-thickness: 3px;
+  text-decoration-color: var(--cobalt);
+  text-underline-offset: 6px;
+}
+
+
+/* ---------- Home page hero ---------- */
+
+.hero {
+  padding: clamp(2rem, 6vw, 5rem) var(--gutter) clamp(2rem, 5vw, 3.5rem);
+}
+
+.hero h1 {
+  margin: 0;
+  font-family: var(--display);
+  font-weight: 800;
+  font-size: clamp(3.75rem, 15vw, 11rem);
+  line-height: 0.88;
+  letter-spacing: -0.045em;
+}
+
+.tagline {
+  max-width: 34ch;
+  margin: 1.5rem 0 0;
+  font-size: clamp(1.3rem, 3vw, 1.75rem);
+  font-style: italic;
+  line-height: 1.35;
+}
+
+
+/* ---------- This month: the shelf ---------- */
+
+.month-head {
+  padding: 0 var(--gutter) 1.25rem;
+}
+
+.month-head h2 {
+  margin: 0;
+  font-family: var(--display);
+  font-weight: 800;
+  font-size: clamp(1.75rem, 4vw, 2.5rem);
+  letter-spacing: -0.02em;
+}
+
+.theme {
+  margin: 0.25rem 0 0;
+  font-style: italic;
+}
+
+/* The three bands stack with no gaps, like spines on a shelf */
+.shelf {
+  display: block;
+}
+
+.band {
+  display: grid;
+  grid-template-columns: minmax(6rem, 10rem) 1fr;
+  gap: 0.5rem 2rem;
+  align-items: start;
+  padding: clamp(1.5rem, 4vw, 2.5rem) var(--gutter);
+}
+
+.band .kind {
+  margin: 0.6rem 0 0;
+  font-family: var(--display);
+  font-weight: 800;
+  font-size: 1.2rem;
+}
+
+.band h3 {
+  margin: 0 0 0.4rem;
+  font-family: var(--display);
+  font-weight: 800;
+  font-size: clamp(2rem, 6.5vw, 4.5rem);
+  line-height: 1;
+  letter-spacing: -0.03em;
+}
+
+.band .by {
+  margin: 0 0 0.75rem;
+  font-size: 1.35rem;
+  font-style: italic;
+}
+
+.band .detail,
+.band .where {
+  margin: 0.1rem 0;
+  font-size: 1.05rem;
+}
+
+.band-book {
+  background: var(--cobalt);
+  color: var(--white);
+}
+
+.band-show {
+  background: var(--highlighter);
+  color: var(--ink);
+}
+
+.band-movie {
+  background: var(--ink);
+  color: var(--lilac);
+}
+
+.meetup {
+  padding: 2.5rem var(--gutter) 3.5rem;
+}
+
+.meetup h3 {
+  margin: 0 0 0.4rem;
+  font-family: var(--display);
+  font-weight: 800;
+  font-size: 1.5rem;
+}
+
+.meetup p {
+  margin: 0.1rem 0;
+  max-width: 46ch;
+}
+
+
+/* ---------- Inner pages (past, recommend, reviews) ---------- */
+
+.page-head {
+  padding: clamp(1.5rem, 5vw, 3.5rem) var(--gutter) 1.5rem;
+}
+
+.page-head h1 {
+  margin: 0;
+  font-family: var(--display);
+  font-weight: 800;
+  font-size: clamp(2.75rem, 9vw, 6rem);
+  line-height: 0.95;
+  letter-spacing: -0.04em;
+}
+
+.lead {
+  max-width: 40ch;
+  margin: 1rem 0 0;
+  font-size: 1.4rem;
+  font-style: italic;
+  line-height: 1.4;
+}
+
+.content {
+  max-width: 46rem;
+  padding: 0 var(--gutter) 4rem;
+}
+
+
+/* ---------- Past months ---------- */
+
+.past-row {
+  display: grid;
+  grid-template-columns: minmax(12rem, 16rem) 1fr;
+  gap: 1.25rem 3rem;
+  padding: 2rem var(--gutter);
+  border-top: 2px solid var(--ink);
+}
+
+.past-month h2 {
+  margin: 0;
+  font-family: var(--display);
+  font-weight: 800;
+  font-size: 1.75rem;
+  letter-spacing: -0.02em;
+}
+
+.past-month p {
+  margin: 0.25rem 0 0.75rem;
+  font-style: italic;
+}
+
+.past-picks {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(13rem, 1fr));
+  gap: 1.25rem 2rem;
+  margin: 0;
+}
+
+.past-picks dt {
+  font-family: var(--display);
+  font-weight: 500;
+  font-size: 0.95rem;
+  color: var(--cobalt);
+}
+
+.past-picks dd {
+  margin: 0;
+}
+
+.past-picks dd:not(.by) {
+  font-family: var(--display);
+  font-weight: 800;
+  font-size: 1.35rem;
+  line-height: 1.2;
+}
+
+.past-picks .by {
+  font-size: 1rem;
+  font-style: italic;
+}
+
+
+/* ---------- Reviews page picker and comment boxes ---------- */
+
+.picker {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  gap: 0.75rem;
+  margin: 1.5rem 0;
+}
+
+.picker label {
+  font-family: var(--display);
+  font-weight: 800;
+}
+
+.picker select {
+  font: inherit;
+  padding: 0.6rem 0.9rem;
+  color: var(--ink);
+  background: var(--white);
+  border: 2px solid var(--ink);
+  border-radius: 0;
+}
+
+#giscus-box {
+  margin-top: 1.5rem;
+}
+
+
+/* ---------- Messages and footer ---------- */
+
+.status {
+  margin: 0;
+  padding: 1rem var(--gutter);
+  font-style: italic;
+}
+
+#giscus-box .status {
+  padding-left: 0;
+  padding-right: 0;
+}
+
+.site-footer {
+  padding: 2.5rem var(--gutter) 3rem;
+  background: var(--ink);
+  color: var(--lilac);
+  font-size: 1rem;
+}
+
+.site-footer p {
+  margin: 0.25rem 0;
+  max-width: 50ch;
+}
+
+.site-footer a {
+  color: var(--highlighter);
+}
+
+
+/* ---------- Small screens ---------- */
+
+@media (max-width: 640px) {
+  .band {
+    grid-template-columns: 1fr;
+  }
+
+  .band .kind {
+    margin-top: 0;
+  }
+
+  .past-row {
+    grid-template-columns: 1fr;
+  }
+}

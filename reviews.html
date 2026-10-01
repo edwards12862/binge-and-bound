@@ -1,0 +1,54 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Reviews | Binge &amp; Bound</title>
+  <meta name="description" content="Read and write reviews of the club's monthly picks.">
+
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Bricolage+Grotesque:opsz,wght@12..96,500;12..96,800&family=Newsreader:ital,opsz,wght@0,6..72,400;0,6..72,600;1,6..72,400&display=swap" rel="stylesheet">
+
+  <link rel="stylesheet" href="style.css">
+</head>
+<body>
+  <a class="skip-link" href="#main">Skip to content</a>
+
+  <header class="site-header">
+    <a class="brand" href="index.html">Binge &amp; Bound</a>
+    <nav aria-label="Main">
+      <a href="index.html">This month</a>
+      <a href="past.html">Past months</a>
+      <a href="recommend.html">Recommend</a>
+      <a href="reviews.html" aria-current="page">Reviews</a>
+    </nav>
+  </header>
+
+  <main id="main">
+    <section class="page-head">
+      <h1>Reviews</h1>
+      <p class="lead">Pick a month, then rate and review the book, show, and movie.</p>
+    </section>
+
+    <section class="content">
+      <p>Start your review with the title and a rating out of 5, like "Severance, 4/5", then say what you thought. You'll need a free GitHub account to post.</p>
+
+      <div class="picker">
+        <label for="month-select">Month</label>
+        <select id="month-select"></select>
+      </div>
+
+      <!-- script.js loads the comment box into this div -->
+      <div id="giscus-box"></div>
+    </section>
+  </main>
+
+  <footer class="site-footer">
+    <p>Binge &amp; Bound is a club for friends who read, watch, and talk about it. Anyone can join.</p>
+    <p><a href="https://www.instagram.com/">Find us on Instagram</a></p>
+  </footer>
+
+  <script src="script.js"></script>
+</body>
+</html>
