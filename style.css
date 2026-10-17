@@ -259,7 +259,7 @@ dialog#details::backdrop { background: rgba(10, 31, 92, 0.65); }
 .d-info dd { margin: 0; }
 
 
-/* ---------- Inner pages (past, recommend, reviews) ---------- */
+/* ---------- Inner pages (past, recommend) ---------- */
 
 .page-head { padding: clamp(1.5rem, 5vw, 3.5rem) var(--gutter) 1.5rem; }
 
@@ -297,17 +297,26 @@ dialog#details::backdrop { background: rgba(10, 31, 92, 0.65); }
 .past-picks .by { font-size: 0.95rem; font-style: italic; }
 
 
-/* ---------- Forms ---------- */
+/* ---------- Recommend page button ---------- */
 
-#form-box { margin-top: 1.5rem; }
-.form-frame { display: block; width: 100%; min-height: 900px; border: 2px solid var(--navy); background: var(--white); }
-.form-fallback { margin: 0.75rem 0 0; font-size: 0.95rem; }
+.form-button {
+  display: inline-block;
+  margin-top: 1rem;
+  padding: 0.85rem 1.75rem;
+  background: var(--navy);
+  color: var(--white);
+  border: 3px solid var(--navy);
+  box-shadow: 6px 6px 0 var(--blue);
+  font-weight: 700;
+  font-size: 1.1rem;
+  text-decoration: none;
+}
+.form-button:hover { background: var(--blue); }
 
 
 /* ---------- Messages and footer ---------- */
 
 .status { margin: 0; padding: 1rem var(--gutter); font-style: italic; }
-#form-box .status { padding-left: 0; padding-right: 0; }
 
 .site-footer { padding: 2.5rem var(--gutter) 3rem; background: var(--navy); color: var(--mist); font-size: 0.95rem; }
 .site-footer p { margin: 0.25rem 0; max-width: 55ch; }

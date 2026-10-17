@@ -1,20 +1,11 @@
 // ============================================================
 // Binge & Bound: script.js
-// This one file powers all four pages. Each function below
+// This one file powers the home and past months pages. Each function below
 // checks whether its page is open, and only runs if it is.
 // ============================================================
 
 
-// ---------- 1. SETTINGS YOU EDIT ONCE ----------
-// Paste the link to each form here (see README.md for the steps).
-// Visitors never need an account or any code: they just fill in the form.
-const FORMS = {
-  recommend: "", // link to your recommendations form
-  review: "",    // link to your reviews form
-};
-
-
-// ---------- 2. SMALL HELPERS ----------
+// ---------- 1. SMALL HELPERS ----------
 
 // Makes text safe to drop into HTML, so a title like "Tom & Jerry"
 // shows up correctly instead of breaking the page.
@@ -195,7 +186,6 @@ async function renderPastMonths() {
         <div class="past-month">
           <h2>${esc(m.label)}</h2>
           <p>${esc(m.theme)}</p>
-          <a href="reviews.html">Leave a review</a>
         </div>
         <dl class="past-picks">
           <div>
@@ -238,29 +228,6 @@ async function renderPastMonths() {
 }
 
 
-// ---------- 5. RECOMMEND AND REVIEWS PAGES ----------
-// Both pages have a <div id="form-box" data-form="..."> that gets
-// the matching form from the FORMS settings at the top of this file.
-
-function setupForm() {
-  const box = document.querySelector("#form-box");
-  if (!box) return; // not a form page
-
-  const url = FORMS[box.dataset.form];
-
-  if (!url) {
-    box.innerHTML =
-      '<p class="status">This form isn\'t open yet. Check back soon.</p>';
-    return;
-  }
-
-  box.innerHTML = `
-    <iframe class="form-frame" src="${esc(url)}" title="Binge &amp; Bound form" loading="lazy">Loading...</iframe>
-    <p class="form-fallback"><a href="${esc(url)}" target="_blank" rel="noopener">Form not showing? Open it in a new tab.</a></p>`;
-}
-
-
-// ---------- 6. START EVERYTHING ----------
+// ---------- 5. START EVERYTHING ----------
 renderThisMonth();
 renderPastMonths();
-setupForm();
