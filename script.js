@@ -30,6 +30,13 @@ async function loadMonths() {
   return data.months;
 }
 
+// The line under each title: author, creator, or singer from the info box
+// (falls back to the provider if none is filled in).
+function byline(item) {
+  const i = item.info || {};
+  return i.Author || i.Creator || i.Singer || i.Provider || "";
+}
+
 // If an image can't load from images/, try the main folder, then give up
 // and show the labeled placeholder box instead.
 function imgFallback(img) {
@@ -71,7 +78,7 @@ function pickCard(kind, label, item) {
       ${photoBox("photo", label, item)}
       <p class="kind">${label}</p>
       <h3><button type="button" class="title-btn" data-pick="${kind}" aria-haspopup="dialog">${esc(item.title)}</button></h3>
-      <p class="by">${esc(item.creator)}</p>
+      <p class="by">${esc(byline(item))}</p>
     </article>`;
 }
 
@@ -84,7 +91,7 @@ function songBlock(song) {
       <div class="song-text">
         <p class="song-label">Song of the month</p>
         <h3><button type="button" class="title-btn" data-pick="song" aria-haspopup="dialog">${esc(song.title)}</button></h3>
-        <p class="song-artist">${esc(song.artist)}</p>
+        <p class="song-artist">${esc(byline(song))}</p>
       </div>
     </div>`;
 }
@@ -106,17 +113,11 @@ function openDetails(kind) {
   const { label, item } = picks[kind];
   const dlg = getDialog();
 
-  // Lines under the title: whatever exists in months.json
-  const basics = [item.creator || item.artist, item.detail, item.where]
-    .filter(Boolean)
-    .map((t) => `<p class="d-line">${esc(t)}</p>`)
-    .join("");
-
-  // Everything in the "info" box of months.json that isn't empty
+  // Summary goes at the top, everything else filled in goes in the list below
   const info = item.info || {};
-  const synopsis = info.Synopsis || info.About || "";
+  const summary = info.Summary || "";
   const rows = Object.entries(info)
-    .filter(([k, v]) => v && k !== "Synopsis" && k !== "About")
+    .filter(([k, v]) => v && k !== "Summary")
     .map(([k, v]) => `<dt>${esc(k)}</dt><dd>${esc(v)}</dd>`)
     .join("");
 
@@ -131,8 +132,7 @@ function openDetails(kind) {
       <div class="d-body">
         <p class="d-kind">${esc(label)}</p>
         <h2 id="details-title">${esc(item.title)}</h2>
-        ${basics}
-        ${synopsis ? `<p class="d-synopsis">${esc(synopsis)}</p>` : ""}
+        ${summary ? `<p class="d-synopsis">${esc(summary)}</p>` : ""}
         ${rows ? `<dl class="d-info">${rows}</dl>` : ""}
         ${listen}
       </div>
@@ -152,7 +152,6 @@ async function renderThisMonth() {
     target.innerHTML = `
       <div class="month-head">
         <h2>${esc(m.label)}</h2>
-        <p class="theme">${esc(m.theme)}</p>
         <p class="hint">Click a title for the full details.</p>
       </div>
       <div class="picks">
@@ -164,7 +163,6 @@ async function renderThisMonth() {
       <div class="meetup">
         <h3>Meetup</h3>
         <p>${esc(m.meetup)}</p>
-        <p>${esc(m.place)}</p>
       </div>`;
 
     target.querySelectorAll(".title-btn").forEach((btn) =>
@@ -200,23 +198,22 @@ async function renderPastMonths() {
       <article class="past-row">
         <div class="past-month">
           <h2>${esc(m.label)}</h2>
-          <p>${esc(m.theme)}</p>
         </div>
         <dl class="past-picks">
           <div>
             <dt>Book</dt>
             <dd>${esc(m.book.title)}</dd>
-            <dd class="by">${esc(m.book.creator)}</dd>
+            <dd class="by">${esc(byline(m.book))}</dd>
           </div>
           <div>
             <dt>Show</dt>
             <dd>${esc(m.show.title)}</dd>
-            <dd class="by">${esc(m.show.detail)}</dd>
+            <dd class="by">${esc(byline(m.show))}</dd>
           </div>
           <div>
             <dt>Movie</dt>
             <dd>${esc(m.movie.title)}</dd>
-            <dd class="by">${esc(m.movie.creator)}</dd>
+            <dd class="by">${esc(byline(m.movie))}</dd>
           </div>
           ${
             m.song && m.song.title
@@ -227,7 +224,7 @@ async function renderPastMonths() {
                 ? `<a href="${esc(m.song.link)}" target="_blank" rel="noopener">${esc(m.song.title)}</a>`
                 : esc(m.song.title)
             }</dd>
-            <dd class="by">${esc(m.song.artist)}</dd>
+            <dd class="by">${esc(byline(m.song))}</dd>
           </div>`
               : ""
           }
