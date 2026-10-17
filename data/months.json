@@ -3,7 +3,6 @@
     {
       "id": "2026-10",
       "label": "October 2026",
-      "meetup": "Saturday, October 25 at 7pm",
       "book": {
         "title": "Sunrise on the Reaping",
         "image": "images/2026-10-book.jpg",
@@ -11,7 +10,7 @@
           "Summary": "A Hunger Games prequel set during the 50th Hunger Games, following a young Haymitch Abernathy.",
           "Provider": "Scholastic",
           "Release date": "March 2025",
-          "Where to buy": "Library, bookstore, or audiobook",
+          "Where to buy": "Barnes and Noble, Amazon, Target, Local Bookstores!",
           "Genre": "Dystopian young adult",
           "Author": "Suzanne Collins"
         }
@@ -23,7 +22,7 @@
           "Summary": "Louis de Pointe du Lac tells the story of his immortal life, love, and loss to a journalist.",
           "Provider": "AMC",
           "Release date": "October 2022",
-          "Where to watch": "AMC+ (check where it's streaming)",
+          "Where to watch": "AMC+, Netflix, Prime",
           "Genre": "Gothic horror drama",
           "Creator": "Rolin Jones, based on the novel by Anne Rice"
         }
@@ -41,47 +40,46 @@
         }
       },
       "song": {
-        "title": "Space Oddity",
+        "title": "Expectations (ft. Chappell Roan)",
         "image": "images/2026-10-song.jpg",
         "link": "",
         "info": {
           "Release date": "July 1969",
-          "Singer": "David Bowie",
-          "Where to listen": "Spotify, Apple Music, or YouTube"
+          "Singer": "Olivia Rodrigo, Chappell Roan",
+          "Where to listen": "Spotify, Apple Music, YouTube"
         }
       }
     },
     {
       "id": "2026-09",
       "label": "September 2026",
-      "meetup": "Saturday, September 27 at 7pm",
       "book": {
-        "title": "Klara and the Sun",
-        "image": "images/2026-09-book.jpg",
+        "title": "Book",
+        "image": "image",
         "info": {
-          "Author": "Kazuo Ishiguro"
+          "Author": "Author"
         }
       },
       "show": {
-        "title": "Fleabag",
-        "image": "images/2026-09-show.jpg",
+        "title": "Show",
+        "image": "image",
         "info": {
-          "Creator": "Phoebe Waller-Bridge"
+          "Creator": "Creator"
         }
       },
       "movie": {
-        "title": "Past Lives",
-        "image": "images/2026-09-movie.jpg",
+        "title": "Movie",
+        "image": "image",
         "info": {
-          "Creator": "Celine Song"
+          "Creator": "Creator"
         }
       },
       "song": {
-        "title": "Landslide",
-        "image": "images/2026-09-song.jpg",
+        "title": "Song",
+        "image": "image",
         "link": "",
         "info": {
-          "Singer": "Fleetwood Mac"
+          "Singer": "Singer"
         }
       }
     }
