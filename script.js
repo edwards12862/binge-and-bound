@@ -160,8 +160,6 @@ async function renderThisMonth() {
         ${pickCard("movie", "Movie", m.movie)}
       </div>
       ${songBlock(m.song)}`;
-        <h3>Meetup</h3>
-        <p>${esc(m.meetup)}</p>
       </div>`;
 
     target.querySelectorAll(".title-btn").forEach((btn) =>
