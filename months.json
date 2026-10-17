@@ -40,12 +40,12 @@
         }
       },
       "song": {
-        "title": "Space Oddity",
+        "title": "Expectations (ft. Chappell Roan)",
         "image": "images/2026-10-song.jpg",
         "link": "",
         "info": {
-          "Release date": "July 1969",
-          "Singer": "David Bowie",
+          "Release date": "October 15, 2026",
+          "Singer": "Olivia Rodrigo, Chappell Roan",
           "Where to listen": "Spotify, Apple Music, or YouTube"
         }
       }
@@ -54,32 +54,32 @@
       "id": "2026-09",
       "label": "September 2026",
       "book": {
-        "title": "Klara and the Sun",
-        "image": "images/2026-09-book.jpg",
+        "title": "Book",
+        "image": "image",
         "info": {
-          "Author": "Kazuo Ishiguro"
+          "Author": "Author"
         }
       },
       "show": {
-        "title": "Fleabag",
-        "image": "images/2026-09-show.jpg",
+        "title": "Show",
+        "image": "image",
         "info": {
-          "Creator": "Phoebe Waller-Bridge"
+          "Creator": "Creator"
         }
       },
       "movie": {
-        "title": "Past Lives",
-        "image": "images/2026-09-movie.jpg",
+        "title": "Movie",
+        "image": "image",
         "info": {
-          "Creator": "Celine Song"
+          "Creator": "Creator"
         }
       },
       "song": {
-        "title": "Landslide",
-        "image": "images/2026-09-song.jpg",
+        "title": "Song",
+        "image": "image",
         "link": "",
         "info": {
-          "Singer": "Fleetwood Mac"
+          "Singer": "Singer"
         }
       }
     }
