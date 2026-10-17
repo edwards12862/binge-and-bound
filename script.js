@@ -160,7 +160,6 @@ async function renderThisMonth() {
         ${pickCard("movie", "Movie", m.movie)}
       </div>
       ${songBlock(m.song)}`;
-      </div>`;
 
     target.querySelectorAll(".title-btn").forEach((btn) =>
       btn.addEventListener("click", () => openDetails(btn.dataset.pick))

@@ -10,7 +10,7 @@
           "Summary": "A Hunger Games prequel set during the 50th Hunger Games, following a young Haymitch Abernathy.",
           "Provider": "Scholastic",
           "Release date": "March 2025",
-          "Where to buy": "Barnes and Noble, Amazon, Target, Local Bookstores!",
+          "Where to buy": "Library, bookstore, or audiobook",
           "Genre": "Dystopian young adult",
           "Author": "Suzanne Collins"
         }
@@ -22,7 +22,7 @@
           "Summary": "Louis de Pointe du Lac tells the story of his immortal life, love, and loss to a journalist.",
           "Provider": "AMC",
           "Release date": "October 2022",
-          "Where to watch": "AMC+, Netflix, Prime",
+          "Where to watch": "AMC+ (check where it's streaming)",
           "Genre": "Gothic horror drama",
           "Creator": "Rolin Jones, based on the novel by Anne Rice"
         }
@@ -40,13 +40,13 @@
         }
       },
       "song": {
-        "title": "Expectations (ft. Chappell Roan)",
+        "title": "Space Oddity",
         "image": "images/2026-10-song.jpg",
         "link": "",
         "info": {
           "Release date": "July 1969",
-          "Singer": "Olivia Rodrigo, Chappell Roan",
-          "Where to listen": "Spotify, Apple Music, YouTube"
+          "Singer": "David Bowie",
+          "Where to listen": "Spotify, Apple Music, or YouTube"
         }
       }
     },
@@ -54,32 +54,32 @@
       "id": "2026-09",
       "label": "September 2026",
       "book": {
-        "title": "Book",
-        "image": "image",
+        "title": "Klara and the Sun",
+        "image": "images/2026-09-book.jpg",
         "info": {
-          "Author": "Author"
+          "Author": "Kazuo Ishiguro"
         }
       },
       "show": {
-        "title": "Show",
-        "image": "image",
+        "title": "Fleabag",
+        "image": "images/2026-09-show.jpg",
         "info": {
-          "Creator": "Creator"
+          "Creator": "Phoebe Waller-Bridge"
         }
       },
       "movie": {
-        "title": "Movie",
-        "image": "image",
+        "title": "Past Lives",
+        "image": "images/2026-09-movie.jpg",
         "info": {
-          "Creator": "Creator"
+          "Creator": "Celine Song"
         }
       },
       "song": {
-        "title": "Song",
-        "image": "image",
+        "title": "Landslide",
+        "image": "images/2026-09-song.jpg",
         "link": "",
         "info": {
-          "Singer": "Singer"
+          "Singer": "Fleetwood Mac"
         }
       }
     }
