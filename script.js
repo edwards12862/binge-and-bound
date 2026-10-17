@@ -159,8 +159,7 @@ async function renderThisMonth() {
         ${pickCard("show", "Show", m.show)}
         ${pickCard("movie", "Movie", m.movie)}
       </div>
-      ${songBlock(m.song)}
-      <div class="meetup">
+      ${songBlock(m.song)}`;
         <h3>Meetup</h3>
         <p>${esc(m.meetup)}</p>
       </div>`;
