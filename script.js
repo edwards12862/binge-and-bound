@@ -6,13 +6,11 @@
 
 
 // ---------- 1. SETTINGS YOU EDIT ONCE ----------
-// These come from https://giscus.app (see README.md for the steps).
-// Until you fill them in, the comment boxes show a friendly notice.
-const GISCUS = {
-  repo: "YOUR-USERNAME/binge-and-bound",
-  repoId: "PASTE-REPO-ID",
-  category: "Announcements",
-  categoryId: "PASTE-CATEGORY-ID",
+// Paste the link to each form here (see README.md for the steps).
+// Visitors never need an account or any code: they just fill in the form.
+const FORMS = {
+  recommend: "", // link to your recommendations form
+  review: "",    // link to your reviews form
 };
 
 
@@ -39,51 +37,58 @@ async function loadMonths() {
   return data.months;
 }
 
-// Loads a giscus comment box into a container.
-// "term" is the name of the discussion thread, like "reviews-2026-10".
-function loadGiscus(container, term) {
-  container.innerHTML = "";
-
-  if (GISCUS.repo.includes("YOUR-USERNAME")) {
-    container.innerHTML =
-      '<p class="status">Comments aren\'t set up yet. Open script.js and fill in the GISCUS settings at the top.</p>';
-    return;
-  }
-
-  const script = document.createElement("script");
-  script.src = "https://giscus.app/client.js";
-  script.async = true;
-  script.crossOrigin = "anonymous";
-  script.setAttribute("data-repo", GISCUS.repo);
-  script.setAttribute("data-repo-id", GISCUS.repoId);
-  script.setAttribute("data-category", GISCUS.category);
-  script.setAttribute("data-category-id", GISCUS.categoryId);
-  script.setAttribute("data-mapping", "specific");
-  script.setAttribute("data-term", term);
-  script.setAttribute("data-strict", "0");
-  script.setAttribute("data-reactions-enabled", "1");
-  script.setAttribute("data-emit-metadata", "0");
-  script.setAttribute("data-input-position", "top");
-  script.setAttribute("data-theme", "light");
-  script.setAttribute("data-lang", "en");
-  container.appendChild(script);
-}
-
 
 // ---------- 3. HOME PAGE: THIS MONTH ----------
 
-// Builds one colored band (a "spine" on the shelf) for a book, show, or movie.
-function band(kind, label, item) {
+// Builds one card: a photo space, then the title and details.
+// If there is no photo yet (or the file is missing), a labeled
+// placeholder box is shown instead.
+function photoBox(cls, label, item) {
+  const hasImage = Boolean(item.image);
+  const img = hasImage
+    ? `<img src="${esc(item.image)}" alt="${esc(label)}: ${esc(item.title)}" loading="lazy" onerror="this.parentElement.classList.add('is-empty'); this.remove();">`
+    : "";
+  const hint = item.image ? esc(item.image) : "add an image path in months.json";
   return `
-    <article class="band band-${kind}">
+      <div class="${cls}${hasImage ? "" : " is-empty"}">
+        ${img}
+        <span class="photo-title">${esc(item.title)}</span>
+        <span class="photo-hint">${hint}</span>
+      </div>`;
+}
+
+function pickCard(kind, label, item) {
+  return `
+    <article class="pick pick-${kind}">
+      ${photoBox("photo", label, item)}
       <p class="kind">${label}</p>
-      <div class="band-body">
-        <h3>${esc(item.title)}</h3>
-        <p class="by">${esc(item.creator)}</p>
-        <p class="detail">${esc(item.detail)}</p>
-        <p class="where">${esc(item.where)}</p>
-      </div>
+      <h3>${esc(item.title)}</h3>
+      <p class="by">${esc(item.creator)}</p>
+      <p class="detail">${esc(item.detail)}</p>
+      <p class="where">${esc(item.where)}</p>
     </article>`;
+}
+
+// Builds the "Song of the month" strip. The Listen button only
+// appears if you pasted a link (Spotify, YouTube, Apple Music...)
+// into the "link" part of the song in data/months.json.
+function songBlock(song) {
+  if (!song || !song.title) return "";
+
+  const button = song.link
+    ? `<a class="song-link" href="${esc(song.link)}" target="_blank" rel="noopener">Listen</a>`
+    : "";
+
+  return `
+    <div class="song">
+      ${photoBox("song-photo", "Song", song)}
+      <div>
+        <h3>Song of the month</h3>
+        <p class="song-name">${esc(song.title)}</p>
+        <p class="song-artist">${esc(song.artist)}</p>
+      </div>
+      ${button}
+    </div>`;
 }
 
 async function renderThisMonth() {
@@ -99,11 +104,12 @@ async function renderThisMonth() {
         <h2>${esc(m.label)}</h2>
         <p class="theme">${esc(m.theme)}</p>
       </div>
-      <div class="shelf">
-        ${band("book", "Book", m.book)}
-        ${band("show", "Show", m.show)}
-        ${band("movie", "Movie", m.movie)}
+      <div class="picks">
+        ${pickCard("book", "Book", m.book)}
+        ${pickCard("show", "Show", m.show)}
+        ${pickCard("movie", "Movie", m.movie)}
       </div>
+      ${songBlock(m.song)}
       <div class="meetup">
         <h3>Meetup</h3>
         <p>${esc(m.meetup)}</p>
@@ -140,7 +146,7 @@ async function renderPastMonths() {
         <div class="past-month">
           <h2>${esc(m.label)}</h2>
           <p>${esc(m.theme)}</p>
-          <a href="reviews.html?month=${encodeURIComponent(m.id)}">Read the reviews</a>
+          <a href="reviews.html">Leave a review</a>
         </div>
         <dl class="past-picks">
           <div>
@@ -158,6 +164,19 @@ async function renderPastMonths() {
             <dd>${esc(m.movie.title)}</dd>
             <dd class="by">${esc(m.movie.creator)}</dd>
           </div>
+          ${
+            m.song && m.song.title
+              ? `<div>
+            <dt>Song</dt>
+            <dd>${
+              m.song.link
+                ? `<a href="${esc(m.song.link)}" target="_blank" rel="noopener">${esc(m.song.title)}</a>`
+                : esc(m.song.title)
+            }</dd>
+            <dd class="by">${esc(m.song.artist)}</dd>
+          </div>`
+              : ""
+          }
         </dl>
       </article>`
       )
@@ -170,52 +189,29 @@ async function renderPastMonths() {
 }
 
 
-// ---------- 5. RECOMMEND PAGE ----------
+// ---------- 5. RECOMMEND AND REVIEWS PAGES ----------
+// Both pages have a <div id="form-box" data-form="..."> that gets
+// the matching form from the FORMS settings at the top of this file.
 
-function setupRecommendations() {
-  const box = document.querySelector("#giscus-box");
-  const picker = document.querySelector("#month-select");
-  if (!box || picker) return; // not the recommend page
+function setupForm() {
+  const box = document.querySelector("#form-box");
+  if (!box) return; // not a form page
 
-  loadGiscus(box, box.dataset.term || "recommendations");
-}
+  const url = FORMS[box.dataset.form];
 
-
-// ---------- 6. REVIEWS PAGE ----------
-
-async function setupReviews() {
-  const select = document.querySelector("#month-select");
-  const box = document.querySelector("#giscus-box");
-  if (!select || !box) return; // not the reviews page
-
-  try {
-    const months = await loadMonths();
-
-    // Fill the dropdown with every month.
-    select.innerHTML = months
-      .map((m) => `<option value="${esc(m.id)}">${esc(m.label)}</option>`)
-      .join("");
-
-    // If the link was reviews.html?month=2026-09, start on that month.
-    const wanted = new URLSearchParams(window.location.search).get("month");
-    if (wanted && months.some((m) => m.id === wanted)) {
-      select.value = wanted;
-    }
-
-    // Each month gets its own comment thread.
-    const showComments = () => loadGiscus(box, "reviews-" + select.value);
-    select.addEventListener("change", showComments);
-    showComments();
-  } catch (error) {
-    console.error(error);
+  if (!url) {
     box.innerHTML =
-      '<p class="status">Couldn\'t load the months. If you opened the file by double-clicking it, use Live Server in VS Code instead.</p>';
+      '<p class="status">This form isn\'t open yet. Check back soon.</p>';
+    return;
   }
+
+  box.innerHTML = `
+    <iframe class="form-frame" src="${esc(url)}" title="Binge &amp; Bound form" loading="lazy">Loading...</iframe>
+    <p class="form-fallback"><a href="${esc(url)}" target="_blank" rel="noopener">Form not showing? Open it in a new tab.</a></p>`;
 }
 
 
-// ---------- 7. START EVERYTHING ----------
+// ---------- 6. START EVERYTHING ----------
 renderThisMonth();
 renderPastMonths();
-setupRecommendations();
-setupReviews();
+setupForm();
