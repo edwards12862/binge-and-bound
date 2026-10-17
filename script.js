@@ -40,55 +40,99 @@ async function loadMonths() {
 
 // ---------- 3. HOME PAGE: THIS MONTH ----------
 
-// Builds one card: a photo space, then the title and details.
-// If there is no photo yet (or the file is missing), a labeled
-// placeholder box is shown instead.
+// Every pick (book, show, movie, song) is stored here so the popup
+// can look it up when its title is clicked.
+const picks = {};
+
 function photoBox(cls, label, item) {
   const hasImage = Boolean(item.image);
   const img = hasImage
     ? `<img src="${esc(item.image)}" alt="${esc(label)}: ${esc(item.title)}" loading="lazy" onerror="this.parentElement.classList.add('is-empty'); this.remove();">`
     : "";
-  const hint = item.image ? esc(item.image) : "add an image path in months.json";
   return `
       <div class="${cls}${hasImage ? "" : " is-empty"}">
         ${img}
         <span class="photo-title">${esc(item.title)}</span>
-        <span class="photo-hint">${hint}</span>
+        <span class="photo-hint">${esc(item.image || "add an image path in months.json")}</span>
       </div>`;
 }
 
+// One card: photo, then the title (a button that opens the popup), then details.
 function pickCard(kind, label, item) {
+  picks[kind] = { label, item };
   return `
     <article class="pick pick-${kind}">
       ${photoBox("photo", label, item)}
       <p class="kind">${label}</p>
-      <h3>${esc(item.title)}</h3>
+      <h3><button type="button" class="title-btn" data-pick="${kind}" aria-haspopup="dialog">${esc(item.title)}</button></h3>
       <p class="by">${esc(item.creator)}</p>
-      <p class="detail">${esc(item.detail)}</p>
-      <p class="where">${esc(item.where)}</p>
     </article>`;
 }
 
-// Builds the "Song of the month" strip. The Listen button only
-// appears if you pasted a link (Spotify, YouTube, Apple Music...)
-// into the "link" part of the song in data/months.json.
 function songBlock(song) {
   if (!song || !song.title) return "";
-
-  const button = song.link
-    ? `<a class="song-link" href="${esc(song.link)}" target="_blank" rel="noopener">Listen</a>`
-    : "";
-
+  picks.song = { label: "Song", item: song };
   return `
     <div class="song">
       ${photoBox("song-photo", "Song", song)}
-      <div>
-        <h3>Song of the month</h3>
-        <p class="song-name">${esc(song.title)}</p>
+      <div class="song-text">
+        <p class="song-label">Song of the month</p>
+        <h3><button type="button" class="title-btn" data-pick="song" aria-haspopup="dialog">${esc(song.title)}</button></h3>
         <p class="song-artist">${esc(song.artist)}</p>
       </div>
-      ${button}
     </div>`;
+}
+
+// ----- The popup -----
+function getDialog() {
+  let dlg = document.querySelector("#details");
+  if (dlg) return dlg;
+  dlg = document.createElement("dialog");
+  dlg.id = "details";
+  dlg.setAttribute("aria-labelledby", "details-title");
+  document.body.appendChild(dlg);
+  // Click on the dark backdrop closes it
+  dlg.addEventListener("click", (e) => { if (e.target === dlg) dlg.close(); });
+  return dlg;
+}
+
+function openDetails(kind) {
+  const { label, item } = picks[kind];
+  const dlg = getDialog();
+
+  // Lines under the title: whatever exists in months.json
+  const basics = [item.creator || item.artist, item.detail, item.where]
+    .filter(Boolean)
+    .map((t) => `<p class="d-line">${esc(t)}</p>`)
+    .join("");
+
+  // Everything in the "info" box of months.json that isn't empty
+  const info = item.info || {};
+  const synopsis = info.Synopsis || info.About || "";
+  const rows = Object.entries(info)
+    .filter(([k, v]) => v && k !== "Synopsis" && k !== "About")
+    .map(([k, v]) => `<dt>${esc(k)}</dt><dd>${esc(v)}</dd>`)
+    .join("");
+
+  const listen = item.link
+    ? `<a class="song-link" href="${esc(item.link)}" target="_blank" rel="noopener">Listen</a>`
+    : "";
+
+  dlg.innerHTML = `
+    <button type="button" class="close-btn" aria-label="Close">Close</button>
+    <div class="d-grid">
+      ${item.image ? `<img class="d-img" src="${esc(item.image)}" alt="" onerror="this.remove()">` : ""}
+      <div class="d-body">
+        <p class="d-kind">${esc(label)}</p>
+        <h2 id="details-title">${esc(item.title)}</h2>
+        ${basics}
+        ${synopsis ? `<p class="d-synopsis">${esc(synopsis)}</p>` : ""}
+        ${rows ? `<dl class="d-info">${rows}</dl>` : ""}
+        ${listen}
+      </div>
+    </div>`;
+  dlg.querySelector(".close-btn").addEventListener("click", () => dlg.close());
+  dlg.showModal();
 }
 
 async function renderThisMonth() {
@@ -103,6 +147,7 @@ async function renderThisMonth() {
       <div class="month-head">
         <h2>${esc(m.label)}</h2>
         <p class="theme">${esc(m.theme)}</p>
+        <p class="hint">Click a title for the full details.</p>
       </div>
       <div class="picks">
         ${pickCard("book", "Book", m.book)}
@@ -115,6 +160,10 @@ async function renderThisMonth() {
         <p>${esc(m.meetup)}</p>
         <p>${esc(m.place)}</p>
       </div>`;
+
+    target.querySelectorAll(".title-btn").forEach((btn) =>
+      btn.addEventListener("click", () => openDetails(btn.dataset.pick))
+    );
   } catch (error) {
     console.error(error);
     target.innerHTML =

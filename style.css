@@ -1,117 +1,79 @@
 /* ============================================================
    Binge & Bound: style.css
-   The colors and fonts live in :root at the top. Change them
+   Blue theme. Colors and fonts live in :root. Change them
    there and the whole site updates.
    ============================================================ */
 
 :root {
   /* Colors */
-  --paper: #eef0fb;       /* page background, a pale periwinkle */
-  --ink: #12142b;         /* text and the darkest band */
-  --cobalt: #2b3fd6;      /* the book band, like cloth binding */
-  --highlighter: #ffd43b; /* the show band */
-  --lilac: #c7ccf2;       /* text on the dark movie band */
+  --paper: #e6eefb;   /* page background, pale blue */
+  --navy: #0a1f5c;    /* site title, text, darkest band */
+  --blue: #1d4ed8;    /* links, book label */
+  --sky: #9fc3f7;     /* show label, song strip */
+  --mist: #cfe0fa;    /* text on navy */
   --white: #ffffff;
 
-  /* Fonts */
-  --display: "Bricolage Grotesque", "Helvetica Neue", Arial, sans-serif;
-  --text: "Newsreader", Georgia, "Times New Roman", serif;
+  /* Fonts: editorial serif for titles, Courier for everything else */
+  --display: "Playfair Display", Georgia, "Times New Roman", serif;
+  --text: "Courier Prime", "Courier New", Courier, monospace;
 
-  /* Side spacing that shrinks on small screens */
   --gutter: clamp(1.25rem, 5vw, 4rem);
 }
 
-*,
-*::before,
-*::after {
-  box-sizing: border-box;
-}
+*, *::before, *::after { box-sizing: border-box; }
 
 body {
   margin: 0;
   background: var(--paper);
-  color: var(--ink);
+  color: var(--navy);
   font-family: var(--text);
-  font-size: 1.15rem;
-  line-height: 1.65;
+  font-size: 1.05rem;
+  line-height: 1.6;
 }
 
-a {
-  color: var(--cobalt);
-  text-underline-offset: 0.2em;
-}
+a { color: var(--blue); text-underline-offset: 0.2em; }
 
-/* Keyboard users can always see where they are */
-:focus-visible {
-  outline: 3px solid var(--cobalt);
-  outline-offset: 3px;
-}
+:focus-visible { outline: 3px solid var(--blue); outline-offset: 3px; }
 
 .skip-link {
-  position: absolute;
-  left: -999px;
-  top: 0.5rem;
-  background: var(--ink);
-  color: var(--white);
-  padding: 0.6rem 1rem;
-  z-index: 10;
+  position: absolute; left: -999px; top: 0.5rem;
+  background: var(--navy); color: var(--white);
+  padding: 0.6rem 1rem; z-index: 10;
 }
-
-.skip-link:focus {
-  left: 0.5rem;
-}
+.skip-link:focus { left: 0.5rem; }
 
 
 /* ---------- Header and navigation ---------- */
 
 .site-header {
-  display: flex;
-  flex-wrap: wrap;
-  align-items: baseline;
-  justify-content: space-between;
-  gap: 0.75rem 2rem;
+  display: flex; flex-wrap: wrap; align-items: baseline;
+  justify-content: space-between; gap: 0.75rem 2rem;
   padding: 1.25rem var(--gutter);
 }
 
 .brand {
   font-family: var(--display);
   font-weight: 800;
-  font-size: 1.3rem;
-  letter-spacing: -0.02em;
-  color: var(--ink);
+  font-size: 1.5rem;
+  color: var(--navy);
   text-decoration: none;
 }
 
-.site-header nav {
-  display: flex;
-  flex-wrap: wrap;
-  gap: 0.4rem 1.75rem;
-}
+.site-header nav { display: flex; flex-wrap: wrap; gap: 0.4rem 1.75rem; }
 
 .site-header nav a {
-  font-family: var(--display);
-  font-weight: 500;
-  font-size: 1.05rem;
-  color: var(--ink);
+  font-weight: 700;
+  color: var(--navy);
   text-decoration: none;
 }
-
-.site-header nav a:hover {
-  text-decoration: underline;
-  text-decoration-thickness: 2px;
-  text-underline-offset: 6px;
-}
-
-/* The link for the page you're on gets a thick underline */
+.site-header nav a:hover { text-decoration: underline; text-decoration-thickness: 2px; text-underline-offset: 6px; }
 .site-header nav a[aria-current="page"] {
-  text-decoration: underline;
-  text-decoration-thickness: 3px;
-  text-decoration-color: var(--cobalt);
-  text-underline-offset: 6px;
+  text-decoration: underline; text-decoration-thickness: 3px;
+  text-decoration-color: var(--blue); text-underline-offset: 6px;
 }
 
 
-/* ---------- Home page hero (centered) ---------- */
+/* ---------- Home page hero ---------- */
 
 .hero {
   padding: clamp(2rem, 6vw, 5rem) var(--gutter) clamp(2rem, 5vw, 3.5rem);
@@ -122,40 +84,34 @@ a {
   margin: 0;
   font-family: var(--display);
   font-weight: 800;
-  font-size: clamp(3.25rem, 13vw, 10rem);
-  line-height: 0.9;
-  letter-spacing: -0.045em;
+  font-size: clamp(3rem, 12vw, 9rem);
+  line-height: 0.95;
+  letter-spacing: -0.03em;
+  color: var(--navy);
 }
 
 .tagline {
-  max-width: 48ch;
+  max-width: 44ch;
   margin: 1.5rem auto 0;
   text-wrap: balance;
-  font-size: clamp(1.3rem, 3vw, 1.75rem);
+  font-size: clamp(1.05rem, 2.4vw, 1.4rem);
   font-style: italic;
-  line-height: 1.35;
 }
 
 
-/* ---------- This month: three photo cards ---------- */
+/* ---------- This month ---------- */
 
-.month-head {
-  padding: 0 var(--gutter) 1.75rem;
-  text-align: center;
-}
+.month-head { padding: 0 var(--gutter) 1.75rem; text-align: center; }
 
 .month-head h2 {
   margin: 0;
   font-family: var(--display);
-  font-weight: 800;
+  font-weight: 700;
   font-size: clamp(1.75rem, 4vw, 2.5rem);
-  letter-spacing: -0.02em;
 }
 
-.theme {
-  margin: 0.25rem 0 0;
-  font-style: italic;
-}
+.theme { margin: 0.25rem 0 0; font-style: italic; font-size: 1.15rem; }
+.hint { margin: 0.5rem 0 0; font-size: 0.9rem; opacity: 0.7; }
 
 .picks {
   display: grid;
@@ -166,188 +122,160 @@ a {
   padding: 0 var(--gutter) 2.5rem;
 }
 
-.pick {
-  text-align: center;
-}
+.pick { text-align: center; }
 
-/* The photo space: a tall poster-shaped box */
+/* Poster-shaped photo box */
 .photo {
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  width: 100%;
-  aspect-ratio: 2 / 3;
-  overflow: hidden;
+  display: flex; align-items: center; justify-content: center;
+  width: 100%; aspect-ratio: 2 / 3; overflow: hidden;
   background: var(--white);
-  border: 3px solid var(--ink);
+  border: 3px solid var(--navy);
+  box-shadow: 8px 8px 0 var(--blue);
 }
+.photo img { display: block; width: 100%; height: 100%; object-fit: cover; }
 
-.photo img {
-  display: block;
-  width: 100%;
-  height: 100%;
-  object-fit: cover;
-}
-
-/* Shown until a real photo is added */
-.photo.is-empty {
+/* Empty photo boxes show the title and the file to add */
+.photo.is-empty, .song-photo.is-empty {
+  flex-direction: column; gap: 0.5rem; padding: 1rem; text-align: center;
   background: rgba(255, 255, 255, 0.55);
-  border-style: dashed;
+  border-style: dashed; box-shadow: none;
 }
-
-.photo-label {
-  padding: 1rem;
-  font-family: var(--display);
-  font-weight: 500;
-  color: var(--ink);
-  opacity: 0.65;
-}
-
-.photo:not(.is-empty) .photo-label {
-  display: none;
-}
+.photo-title { font-family: var(--display); font-weight: 800; font-size: 1.3rem; line-height: 1.1; }
+.photo-hint { font-size: 0.8rem; opacity: 0.55; word-break: break-all; }
+.photo:not(.is-empty) .photo-title, .photo:not(.is-empty) .photo-hint,
+.song-photo:not(.is-empty) .photo-title, .song-photo:not(.is-empty) .photo-hint { display: none; }
 
 .pick .kind {
   display: inline-block;
-  margin: 1.1rem 0 0.4rem;
-  padding: 0.15rem 0.9rem;
-  font-family: var(--display);
-  font-weight: 800;
-  font-size: 1rem;
+  margin: 1.4rem 0 0.4rem;
+  padding: 0.1rem 0.9rem;
+  font-weight: 700; font-size: 0.9rem; font-style: italic;
   border-radius: 999px;
 }
+.pick-book .kind { background: var(--blue); color: var(--white); }
+.pick-show .kind { background: var(--sky); color: var(--navy); }
+.pick-movie .kind { background: var(--navy); color: var(--mist); }
 
-.pick-book .kind {
-  background: var(--cobalt);
-  color: var(--white);
-}
+.pick h3 { margin: 0.15rem 0 0.3rem; line-height: 1.15; }
 
-.pick-show .kind {
-  background: var(--highlighter);
-  color: var(--ink);
+/* The clickable title under each photo */
+.title-btn {
+  padding: 0; margin: 0;
+  background: none; border: 0; cursor: pointer;
+  font-family: var(--text);
+  font-weight: 700;
+  font-size: clamp(1.25rem, 2.2vw, 1.6rem);
+  line-height: 1.15;
+  color: var(--navy);
+  text-align: inherit;
+  text-decoration: underline;
+  text-decoration-thickness: 2px;
+  text-decoration-color: var(--blue);
+  text-underline-offset: 5px;
 }
+.title-btn:hover { color: var(--blue); }
 
-.pick-movie .kind {
-  background: var(--ink);
-  color: var(--lilac);
-}
+.pick .by { margin: 0; font-style: italic; font-size: 0.95rem; }
 
-.pick h3 {
-  margin: 0.15rem 0 0.3rem;
-  font-family: var(--display);
-  font-weight: 800;
-  font-size: clamp(1.4rem, 2.4vw, 2rem);
-  line-height: 1.1;
-  letter-spacing: -0.02em;
-}
-
-.pick .by {
-  margin: 0 0 0.5rem;
-  font-style: italic;
-}
-
-.pick .detail,
-.pick .where {
-  margin: 0.1rem 0;
-  font-size: 1.02rem;
-}
 
 /* ---------- Song of the month ---------- */
 
 .song {
-  display: flex;
-  flex-wrap: wrap;
-  align-items: center;
-  justify-content: center;
-  gap: 1rem 2.5rem;
-  max-width: 46rem;
+  display: flex; flex-wrap: wrap; align-items: center; justify-content: center;
+  gap: 1.25rem 2rem;
+  max-width: 40rem;
   margin: 0 auto 2.5rem;
   padding: 1.5rem 2rem;
-  background: var(--highlighter);
-  border: 3px solid var(--ink);
+  background: var(--sky);
+  border: 3px solid var(--navy);
   text-align: center;
 }
 
-.song h3 {
-  margin: 0 0 0.2rem;
-  font-family: var(--display);
-  font-weight: 500;
-  font-size: 1rem;
+.song-photo {
+  display: flex; align-items: center; justify-content: center;
+  flex: 0 0 auto; width: 9rem; aspect-ratio: 1 / 1; overflow: hidden;
+  background: var(--white); border: 3px solid var(--navy);
 }
+.song-photo img { display: block; width: 100%; height: 100%; object-fit: cover; }
+.song-photo .photo-title { font-size: 1rem; }
 
-.song .song-name {
-  margin: 0;
-  font-family: var(--display);
-  font-weight: 800;
-  font-size: clamp(1.5rem, 3vw, 2rem);
-  line-height: 1.1;
-  letter-spacing: -0.02em;
-}
-
-.song .song-artist {
-  margin: 0.15rem 0 0;
-  font-style: italic;
-}
+.song-label { margin: 0 0 0.3rem; font-size: 0.9rem; font-style: italic; }
+.song h3 { margin: 0; }
+.song .title-btn { font-size: clamp(1.4rem, 3vw, 1.9rem); }
+.song-artist { margin: 0.25rem 0 0; font-style: italic; }
 
 .song-link {
-  display: inline-block;
-  padding: 0.6rem 1.5rem;
-  background: var(--ink);
-  color: var(--white);
-  font-family: var(--display);
-  font-weight: 800;
-  text-decoration: none;
+  display: inline-block; margin-top: 1rem; padding: 0.6rem 1.5rem;
+  background: var(--navy); color: var(--white);
+  font-weight: 700; text-decoration: none;
 }
+.song-link:hover { background: var(--blue); }
 
-.song-link:hover {
-  background: var(--cobalt);
-}
+.meetup { padding: 1rem var(--gutter) 3.5rem; text-align: center; }
+.meetup h3 { margin: 0 0 0.4rem; font-family: var(--display); font-weight: 700; font-size: 1.6rem; }
+.meetup p { margin: 0.1rem auto; max-width: 46ch; }
 
-.meetup {
-  padding: 1rem var(--gutter) 3.5rem;
-  text-align: center;
-}
 
-.meetup h3 {
-  margin: 0 0 0.4rem;
-  font-family: var(--display);
-  font-weight: 800;
-  font-size: 1.5rem;
-}
+/* ---------- Details popup ---------- */
 
-.meetup p {
-  margin: 0.1rem auto;
-  max-width: 46ch;
+dialog#details {
+  width: min(44rem, calc(100% - 2rem));
+  max-height: calc(100% - 2rem);
+  padding: 0;
+  background: var(--paper);
+  color: var(--navy);
+  border: 3px solid var(--navy);
+  box-shadow: 10px 10px 0 var(--blue);
+  overflow: auto;
 }
+dialog#details[open] { animation: pop 0.18s ease-out; }
+dialog#details::backdrop { background: rgba(10, 31, 92, 0.65); }
+
+@keyframes pop {
+  from { opacity: 0; transform: translateY(8px) scale(0.98); }
+  to   { opacity: 1; transform: none; }
+}
+@media (prefers-reduced-motion: reduce) { dialog#details[open] { animation: none; } }
+
+.close-btn {
+  position: absolute; top: 0.75rem; right: 0.75rem;
+  padding: 0.35rem 0.9rem;
+  background: var(--navy); color: var(--white);
+  border: 0; cursor: pointer;
+  font-family: var(--text); font-weight: 700; font-size: 0.95rem;
+}
+.close-btn:hover { background: var(--blue); }
+
+.d-grid { display: grid; grid-template-columns: 11rem 1fr; gap: 1.5rem 2rem; padding: 2.75rem 2rem 2rem; }
+.d-img { width: 100%; aspect-ratio: 2 / 3; object-fit: cover; border: 3px solid var(--navy); }
+.d-kind { margin: 0; font-style: italic; font-size: 0.95rem; color: var(--blue); font-weight: 700; }
+.d-body h2 { margin: 0.1rem 0 0.5rem; font-family: var(--display); font-weight: 800; font-size: clamp(1.7rem, 4vw, 2.4rem); line-height: 1.05; }
+.d-line { margin: 0.1rem 0; font-size: 0.95rem; }
+.d-line:first-of-type { font-style: italic; }
+.d-synopsis { margin: 1rem 0; font-size: 1.05rem; }
+
+.d-info { display: grid; grid-template-columns: max-content 1fr; gap: 0.35rem 1.25rem; margin: 1rem 0 0; padding-top: 1rem; border-top: 2px solid var(--navy); }
+.d-info dt { font-weight: 700; }
+.d-info dd { margin: 0; }
 
 
 /* ---------- Inner pages (past, recommend, reviews) ---------- */
 
-.page-head {
-  padding: clamp(1.5rem, 5vw, 3.5rem) var(--gutter) 1.5rem;
-}
+.page-head { padding: clamp(1.5rem, 5vw, 3.5rem) var(--gutter) 1.5rem; }
 
 .page-head h1 {
   margin: 0;
   font-family: var(--display);
   font-weight: 800;
-  font-size: clamp(2.75rem, 9vw, 6rem);
-  line-height: 0.95;
-  letter-spacing: -0.04em;
+  font-size: clamp(2.5rem, 8vw, 5.5rem);
+  line-height: 1;
+  letter-spacing: -0.03em;
+  color: var(--navy);
 }
 
-.lead {
-  max-width: 40ch;
-  margin: 1rem 0 0;
-  font-size: 1.4rem;
-  font-style: italic;
-  line-height: 1.4;
-}
+.lead { max-width: 42ch; margin: 1rem 0 0; font-size: 1.2rem; font-style: italic; }
 
-.content {
-  max-width: 46rem;
-  padding: 0 var(--gutter) 4rem;
-}
+.content { max-width: 46rem; padding: 0 var(--gutter) 4rem; }
 
 
 /* ---------- Past months ---------- */
@@ -357,181 +285,40 @@ a {
   grid-template-columns: minmax(12rem, 16rem) 1fr;
   gap: 1.25rem 3rem;
   padding: 2rem var(--gutter);
-  border-top: 2px solid var(--ink);
+  border-top: 2px solid var(--navy);
 }
+.past-month h2 { margin: 0; font-family: var(--display); font-weight: 700; font-size: 1.75rem; }
+.past-month p { margin: 0.25rem 0 0.75rem; font-style: italic; }
 
-.past-month h2 {
-  margin: 0;
-  font-family: var(--display);
-  font-weight: 800;
-  font-size: 1.75rem;
-  letter-spacing: -0.02em;
-}
-
-.past-month p {
-  margin: 0.25rem 0 0.75rem;
-  font-style: italic;
-}
-
-.past-picks {
-  display: grid;
-  grid-template-columns: repeat(auto-fit, minmax(13rem, 1fr));
-  gap: 1.25rem 2rem;
-  margin: 0;
-}
-
-.past-picks dt {
-  font-family: var(--display);
-  font-weight: 500;
-  font-size: 0.95rem;
-  color: var(--cobalt);
-}
-
-.past-picks dd {
-  margin: 0;
-}
-
-.past-picks dd:not(.by) {
-  font-family: var(--display);
-  font-weight: 800;
-  font-size: 1.35rem;
-  line-height: 1.2;
-}
-
-.past-picks .by {
-  font-size: 1rem;
-  font-style: italic;
-}
+.past-picks { display: grid; grid-template-columns: repeat(auto-fit, minmax(13rem, 1fr)); gap: 1.25rem 2rem; margin: 0; }
+.past-picks dt { font-size: 0.9rem; font-style: italic; color: var(--blue); }
+.past-picks dd { margin: 0; }
+.past-picks dd:not(.by) { font-weight: 700; font-size: 1.15rem; line-height: 1.25; }
+.past-picks .by { font-size: 0.95rem; font-style: italic; }
 
 
-/* ---------- Recommend and reviews forms ---------- */
+/* ---------- Forms ---------- */
 
-#form-box {
-  margin-top: 1.5rem;
-}
-
-.form-frame {
-  display: block;
-  width: 100%;
-  min-height: 900px;
-  border: 2px solid var(--ink);
-  background: var(--white);
-}
-
-.form-fallback {
-  margin: 0.75rem 0 0;
-  font-size: 1rem;
-}
+#form-box { margin-top: 1.5rem; }
+.form-frame { display: block; width: 100%; min-height: 900px; border: 2px solid var(--navy); background: var(--white); }
+.form-fallback { margin: 0.75rem 0 0; font-size: 0.95rem; }
 
 
 /* ---------- Messages and footer ---------- */
 
-.status {
-  margin: 0;
-  padding: 1rem var(--gutter);
-  font-style: italic;
-}
+.status { margin: 0; padding: 1rem var(--gutter); font-style: italic; }
+#form-box .status { padding-left: 0; padding-right: 0; }
 
-#form-box .status {
-  padding-left: 0;
-  padding-right: 0;
-}
-
-.site-footer {
-  padding: 2.5rem var(--gutter) 3rem;
-  background: var(--ink);
-  color: var(--lilac);
-  font-size: 1rem;
-}
-
-.site-footer p {
-  margin: 0.25rem 0;
-  max-width: 50ch;
-}
-
-.site-footer a {
-  color: var(--highlighter);
-}
+.site-footer { padding: 2.5rem var(--gutter) 3rem; background: var(--navy); color: var(--mist); font-size: 0.95rem; }
+.site-footer p { margin: 0.25rem 0; max-width: 55ch; }
+.site-footer a { color: var(--sky); }
 
 
 /* ---------- Small screens ---------- */
 
 @media (max-width: 760px) {
-  .picks {
-    grid-template-columns: 1fr;
-    max-width: 22rem;
-  }
-
-  .past-row {
-    grid-template-columns: 1fr;
-  }
-}
-
-/* ---------- Photo upgrades (added) ---------- */
-
-/* Empty photo boxes now show the title so the card still reads well */
-.photo.is-empty {
-  flex-direction: column;
-  gap: 0.5rem;
-  padding: 1rem;
-  text-align: center;
-}
-
-.photo-title {
-  font-family: var(--display);
-  font-weight: 800;
-  font-size: 1.3rem;
-  line-height: 1.1;
-}
-
-.photo-hint {
-  font-family: var(--display);
-  font-size: 0.8rem;
-  opacity: 0.55;
-  word-break: break-all;
-}
-
-.photo:not(.is-empty) .photo-title,
-.photo:not(.is-empty) .photo-hint {
-  display: none;
-}
-
-/* Song of the month now has a square album cover */
-.song {
-  justify-content: center;
-}
-
-.song-photo {
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  flex: 0 0 auto;
-  width: 9rem;
-  aspect-ratio: 1 / 1;
-  overflow: hidden;
-  background: rgba(255, 255, 255, 0.55);
-  border: 3px solid var(--ink);
-}
-
-.song-photo.is-empty {
-  border-style: dashed;
-  flex-direction: column;
-  padding: 0.5rem;
-  text-align: center;
-}
-
-.song-photo img {
-  display: block;
-  width: 100%;
-  height: 100%;
-  object-fit: cover;
-}
-
-.song-photo:not(.is-empty) .photo-title,
-.song-photo:not(.is-empty) .photo-hint {
-  display: none;
-}
-
-.song-photo .photo-title {
-  font-size: 1rem;
+  .picks { grid-template-columns: 1fr; max-width: 22rem; }
+  .past-row { grid-template-columns: 1fr; }
+  .d-grid { grid-template-columns: 1fr; }
+  .d-img { max-width: 11rem; }
 }

@@ -3,35 +3,67 @@
     {
       "id": "2026-10",
       "label": "October 2026",
-      "theme": "Strange new worlds",
+      "theme": "Dark worlds",
       "meetup": "Saturday, October 25 at 7pm",
       "place": "Replace this with the meetup spot or a video call link",
       "book": {
-        "title": "Project Hail Mary",
-        "creator": "Andy Weir",
-        "detail": "Science fiction novel",
+        "title": "Sunrise on the Reaping",
+        "creator": "Suzanne Collins",
+        "detail": "Novel, a Hunger Games prequel",
         "where": "Library, bookstore, or audiobook",
-        "image": "images/2026-10-book.jpg"
+        "image": "images/2026-10-book.jpg",
+        "info": {
+          "Synopsis": "A Hunger Games prequel set during the 50th Hunger Games, following a young Haymitch Abernathy.",
+          "Published": "March 2025",
+          "Publisher": "Scholastic",
+          "Genre": "Dystopian young adult",
+          "Pages": "",
+          "Notes": ""
+        }
       },
       "show": {
-        "title": "Severance",
-        "creator": "Created by Dan Erickson",
-        "detail": "Season 1, 9 episodes",
-        "where": "Check where it's streaming",
-        "image": "images/2026-10-show.jpg"
+        "title": "Interview with the Vampire",
+        "creator": "Created by Rolin Jones, based on Anne Rice's novel",
+        "detail": "Season 1, 7 episodes",
+        "where": "Check where it's streaming (AMC / AMC+)",
+        "image": "images/2026-10-show.jpg",
+        "info": {
+          "Synopsis": "",
+          "Network": "AMC",
+          "First aired": "2022",
+          "Genre": "Gothic horror drama",
+          "Cast": "",
+          "Notes": ""
+        }
       },
       "movie": {
-        "title": "Everything Everywhere All at Once",
-        "creator": "Daniel Kwan and Daniel Scheinert",
-        "detail": "Feature film, 2022",
-        "where": "Rent or stream",
-        "image": "images/2026-10-movie.jpg"
+        "title": "Clayface",
+        "creator": "DC Studios",
+        "detail": "Feature film, 2026",
+        "where": "In theaters October 23",
+        "image": "images/2026-10-movie.jpg",
+        "info": {
+          "Synopsis": "",
+          "Release date": "October 23, 2026",
+          "Studio": "DC Studios",
+          "Director": "",
+          "Cast": "",
+          "Runtime": "",
+          "Genre": "Horror, superhero",
+          "Notes": ""
+        }
       },
       "song": {
         "title": "Space Oddity",
         "artist": "David Bowie",
         "link": "",
-        "image": "images/2026-10-song.jpg"
+        "image": "images/2026-10-song.jpg",
+        "info": {
+          "About": "",
+          "Album": "",
+          "Year": "1969",
+          "Notes": ""
+        }
       }
     },
     {
