@@ -128,8 +128,9 @@ a { color: var(--blue); text-underline-offset: 0.2em; }
 .photo {
   display: flex; align-items: center; justify-content: center;
   width: 100%; aspect-ratio: 2 / 3; overflow: hidden;
+  padding: 0.4rem;
   background: var(--white);
-  border: 3px solid var(--navy);
+  border: 5px solid var(--navy);
   box-shadow: 8px 8px 0 var(--blue);
 }
 .photo img { display: block; width: 100%; height: 100%; object-fit: cover; }
@@ -194,7 +195,7 @@ a { color: var(--blue); text-underline-offset: 0.2em; }
 .song-photo {
   display: flex; align-items: center; justify-content: center;
   flex: 0 0 auto; width: 9rem; aspect-ratio: 1 / 1; overflow: hidden;
-  background: var(--white); border: 3px solid var(--navy);
+  padding: 0.3rem; background: var(--white); border: 4px solid var(--navy);
 }
 .song-photo img { display: block; width: 100%; height: 100%; object-fit: cover; }
 .song-photo .photo-title { font-size: 1rem; }
@@ -247,7 +248,7 @@ dialog#details::backdrop { background: rgba(10, 31, 92, 0.65); }
 .close-btn:hover { background: var(--blue); }
 
 .d-grid { display: grid; grid-template-columns: 11rem 1fr; gap: 1.5rem 2rem; padding: 2.75rem 2rem 2rem; }
-.d-img { width: 100%; aspect-ratio: 2 / 3; object-fit: cover; border: 3px solid var(--navy); }
+.d-img { width: 100%; aspect-ratio: 2 / 3; object-fit: cover; padding: 0.35rem; background: var(--white); border: 5px solid var(--navy); box-shadow: 6px 6px 0 var(--blue); }
 .d-kind { margin: 0; font-style: italic; font-size: 0.95rem; color: var(--blue); font-weight: 700; }
 .d-body h2 { margin: 0.1rem 0 0.5rem; font-family: var(--display); font-weight: 800; font-size: clamp(1.7rem, 4vw, 2.4rem); line-height: 1.05; }
 .d-line { margin: 0.1rem 0; font-size: 0.95rem; }

@@ -20,12 +20,27 @@ function esc(value) {
 // Reads data/months.json and returns the list of months.
 // The newest month is first in the file, so months[0] is "this month".
 async function loadMonths() {
-  const response = await fetch("data/months.json");
+  // Looks in data/ first, then in the main folder, so it works either way
+  let response = await fetch("data/months.json");
+  if (!response.ok) response = await fetch("months.json");
   if (!response.ok) {
-    throw new Error("Could not load data/months.json");
+    throw new Error("Could not find months.json (put it in the data folder)");
   }
   const data = await response.json();
   return data.months;
+}
+
+// If an image can't load from images/, try the main folder, then give up
+// and show the labeled placeholder box instead.
+function imgFallback(img) {
+  if (!img.dataset.tried) {
+    img.dataset.tried = "1";
+    img.src = img.getAttribute("src").split("/").pop();
+    return;
+  }
+  const box = img.parentElement;
+  if (box.matches(".photo, .song-photo")) box.classList.add("is-empty");
+  img.remove();
 }
 
 
@@ -38,7 +53,7 @@ const picks = {};
 function photoBox(cls, label, item) {
   const hasImage = Boolean(item.image);
   const img = hasImage
-    ? `<img src="${esc(item.image)}" alt="${esc(label)}: ${esc(item.title)}" loading="lazy" onerror="this.parentElement.classList.add('is-empty'); this.remove();">`
+    ? `<img src="${esc(item.image)}" alt="${esc(label)}: ${esc(item.title)}" loading="lazy" onerror="imgFallback(this)">`
     : "";
   return `
       <div class="${cls}${hasImage ? "" : " is-empty"}">
@@ -112,7 +127,7 @@ function openDetails(kind) {
   dlg.innerHTML = `
     <button type="button" class="close-btn" aria-label="Close">Close</button>
     <div class="d-grid">
-      ${item.image ? `<img class="d-img" src="${esc(item.image)}" alt="" onerror="this.remove()">` : ""}
+      ${item.image ? `<img class="d-img" src="${esc(item.image)}" alt="" onerror="imgFallback(this)">` : ""}
       <div class="d-body">
         <p class="d-kind">${esc(label)}</p>
         <h2 id="details-title">${esc(item.title)}</h2>
