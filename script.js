@@ -30,11 +30,11 @@ async function loadMonths() {
   return data.months;
 }
 
-// The line under each title: author, creator, or singer from the info box
-// (falls back to the provider if none is filled in).
+// The line under each title: author, creator, director, or singer from the
+// info box (falls back to the provider if none is filled in).
 function byline(item) {
   const i = item.info || {};
-  return i.Author || i.Creator || i.Singer || i.Provider || "";
+  return i.Author || i.Creator || i.Director || i.Singer || i.Provider || "";
 }
 
 // If an image can't load from images/, try the main folder, then give up

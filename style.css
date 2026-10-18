@@ -91,7 +91,10 @@ a { color: var(--blue); text-underline-offset: 0.2em; }
   /* Film-strip and book-stack pattern behind the ribbon, full width */
   margin: 0 calc(-1 * var(--gutter));
   padding: clamp(2.25rem, 7vw, 4.5rem) var(--gutter);
-  background: url("images/header-pattern.png") center / cover no-repeat;
+  /* Looks in images/ first, then the main folder, so it shows either way */
+  background:
+    url("images/header-pattern.png") center / cover no-repeat,
+    url("header-pattern.png") center / cover no-repeat;
   border-bottom: 3px solid var(--navy);
   font-family: var(--display);
   font-weight: 800;
