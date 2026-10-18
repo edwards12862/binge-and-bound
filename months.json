@@ -10,8 +10,8 @@
           "Summary": "A Hunger Games prequel set during the 50th Hunger Games, following a young Haymitch Abernathy.",
           "Provider": "Scholastic",
           "Release date": "March 2025",
-          "Where to buy": "Library, bookstore, or audiobook",
-          "Genre": "Dystopian young adult",
+          "Where to buy": "Library, Local Bookstore, Amazon, Barnes and Noble",
+          "Genre": "Dystopian YA",
           "Author": "Suzanne Collins"
         }
       },
@@ -22,8 +22,8 @@
           "Summary": "Louis de Pointe du Lac tells the story of his immortal life, love, and loss to a journalist.",
           "Provider": "AMC",
           "Release date": "October 2022",
-          "Where to watch": "AMC+ (check where it's streaming)",
-          "Genre": "Gothic horror drama",
+          "Where to watch": "AMC+, Prime, Netflix",
+          "Genre": "Gothic Horror Drama",
           "Creator": "Rolin Jones, based on the novel by Anne Rice"
         }
       },
@@ -34,9 +34,9 @@
           "Summary": "",
           "Provider": "DC Studios",
           "Release date": "October 23, 2026",
-          "Where to watch": "In theaters",
-          "Genre": "Horror, superhero",
-          "Creator": ""
+          "Where to watch": "In theaters!",
+          "Genre": "Horror, Superhero",
+          "Director": "James Watkins"
         }
       },
       "song": {
@@ -46,40 +46,40 @@
         "info": {
           "Release date": "October 15, 2026",
           "Singer": "Olivia Rodrigo, Chappell Roan",
-          "Where to listen": "Spotify, Apple Music, or YouTube"
+          "Where to listen": "Spotify, Apple Music, YouTube"
         }
       }
     },
     {
-      "id": "2026-09",
-      "label": "September 2026",
+      "id": "2026-10",
+      "label": "October 2026",
       "book": {
-        "title": "Book",
-        "image": "image",
+        "title": "Sunrise on the Reaping",
+        "image": "images/2026-10-book.jpg",
         "info": {
-          "Author": "Author"
+          "Author": "Suzanne Collins"
         }
       },
       "show": {
-        "title": "Show",
-        "image": "image",
+        "title": "Interview with the Vampire",
+        "image": "images/2026-10-show.jpg",
         "info": {
-          "Creator": "Creator"
+          "Creator": "Rolin Jones, based on the novel by Anne Rice"
         }
       },
       "movie": {
-        "title": "Movie",
-        "image": "image",
+        "title": "Clayface",
+        "image": "images/2026-10-movie.jpg",
         "info": {
-          "Creator": "Creator"
+          "Creator": "David S. Goyer"
         }
       },
       "song": {
-        "title": "Song",
-        "image": "image",
+        "title": "Expectations (ft. Chappell Roan)",
+        "image": "images/2026-10-song.jpg",
         "link": "",
         "info": {
-          "Singer": "Singer"
+          "Singer": "Olivia Rodrigo, Chappell Roan"
         }
       }
     }
