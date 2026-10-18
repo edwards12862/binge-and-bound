@@ -22,6 +22,14 @@
 
 *, *::before, *::after { box-sizing: border-box; }
 
+/* Banner line across the very top of every page */
+body::before {
+  content: "";
+  display: block;
+  height: 0.9rem;
+  background: #9fc3f7;
+}
+
 body {
   margin: 0;
   background: var(--paper);
@@ -52,6 +60,9 @@ a { color: var(--blue); text-underline-offset: 0.2em; }
 }
 
 .brand {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.6rem;
   font-family: var(--display);
   font-weight: 800;
   font-size: 1.5rem;
@@ -213,6 +224,10 @@ a { color: var(--blue); text-underline-offset: 0.2em; }
 .pick .by { margin: 0; font-style: italic; font-size: 0.95rem; }
 
 
+/* Little logo mark after the site name in the header */
+.brand-mark { display: block; height: 1.2rem; width: auto; }
+
+
 /* ---------- Song of the month ---------- */
 
 .song {
@@ -225,6 +240,28 @@ a { color: var(--blue); text-underline-offset: 0.2em; }
   border: 3px solid var(--navy);
   text-align: center;
 }
+
+/* Four-pointed stars on both sides of the song photo */
+.song-photo-wrap {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 0.9rem;
+}
+.stars {
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  align-self: stretch;
+  padding: 0.2rem 0;
+}
+.star { display: block; fill: #09205C; }
+.star.lg { width: 2.6rem; height: 2.6rem; }
+.star.sm { width: 1.2rem; height: 1.2rem; }
+.stars-left .sm  { align-self: flex-start; }
+.stars-left .lg  { align-self: flex-end; }
+.stars-right .lg { align-self: flex-start; }
+.stars-right .sm { align-self: flex-end; }
 
 .song-photo {
   display: flex; align-items: center; justify-content: center;
@@ -358,6 +395,11 @@ dialog#details::backdrop { background: rgba(10, 31, 92, 0.65); }
 
 
 /* ---------- Small screens ---------- */
+
+@media (max-width: 400px) {
+  .star.lg { width: 1.8rem; height: 1.8rem; }
+  .song-photo-wrap { gap: 0.5rem; }
+}
 
 @media (max-width: 760px) {
   .picks { grid-template-columns: 1fr; max-width: 22rem; }

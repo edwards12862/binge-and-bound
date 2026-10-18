@@ -87,7 +87,17 @@ function songBlock(song) {
   picks.song = { label: "Song", item: song };
   return `
     <div class="song">
-      ${photoBox("song-photo", "Song", song)}
+      <div class="song-photo-wrap">
+        <span class="stars stars-left" aria-hidden="true">
+          <svg class="star sm" viewBox="0 0 24 24" aria-hidden="true" focusable="false"><path d="M12 0C12.9 7.2 16.8 11.1 24 12C16.8 12.9 12.9 16.8 12 24C11.1 16.8 7.2 12.9 0 12C7.2 11.1 11.1 7.2 12 0Z"/></svg>
+          <svg class="star lg" viewBox="0 0 24 24" aria-hidden="true" focusable="false"><path d="M12 0C12.9 7.2 16.8 11.1 24 12C16.8 12.9 12.9 16.8 12 24C11.1 16.8 7.2 12.9 0 12C7.2 11.1 11.1 7.2 12 0Z"/></svg>
+        </span>
+        ${photoBox("song-photo", "Song", song)}
+        <span class="stars stars-right" aria-hidden="true">
+          <svg class="star lg" viewBox="0 0 24 24" aria-hidden="true" focusable="false"><path d="M12 0C12.9 7.2 16.8 11.1 24 12C16.8 12.9 12.9 16.8 12 24C11.1 16.8 7.2 12.9 0 12C7.2 11.1 11.1 7.2 12 0Z"/></svg>
+          <svg class="star sm" viewBox="0 0 24 24" aria-hidden="true" focusable="false"><path d="M12 0C12.9 7.2 16.8 11.1 24 12C16.8 12.9 12.9 16.8 12 24C11.1 16.8 7.2 12.9 0 12C7.2 11.1 11.1 7.2 12 0Z"/></svg>
+        </span>
+      </div>
       <div class="song-text">
         <p class="song-label">Song of the month</p>
         <h3><button type="button" class="title-btn" data-pick="song" aria-haspopup="dialog">${esc(song.title)}</button></h3>
