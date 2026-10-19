@@ -13,7 +13,17 @@
           "Where to buy": "Library, Local Bookstore, Amazon, Barnes and Noble",
           "Genre": "Dystopian YA",
           "Author": "Suzanne Collins"
-        }
+        },
+        "honorable": [
+          {
+            "title": "Carmilla",
+            "image": "images/2026-10-book-hm1.jpg"
+          },
+          {
+            "title": "Heated Rivalry",
+            "image": "images/2026-10-book-hm2.jpg"
+          }
+        ]
       },
       "show": {
         "title": "Blade Runner 2099",
@@ -27,8 +37,14 @@
           "Creator": "Silka Luisa"
         },
         "honorable": [
-          { "title": "The Body", "image": "images/2026-11-show-hm1.jpg" },
-          { "title": "The Hunting Wives", "image": "images/2026-11-show-hm2.jpg" }
+          {
+            "title": "The Body",
+            "image": "images/2026-11-show-hm1.jpg"
+          },
+          {
+            "title": "The Hunting Wives",
+            "image": "images/2026-11-show-hm2.jpg"
+          }
         ]
       },
       "movie": {
@@ -43,8 +59,14 @@
           "Director": "Francis Lawrence"
         },
         "honorable": [
-          { "title": "How to Rob a Bank", "image": "images/2026-11-movie-hm1.jpg" },
-          { "title": "Pride & Prejudice", "image": "images/2026-11-movie-hm2.jpg" }
+          {
+            "title": "How to Rob a Bank",
+            "image": "images/2026-11-movie-hm1.jpg"
+          },
+          {
+            "title": "Pride & Prejudice",
+            "image": "images/2026-11-movie-hm2.jpg"
+          }
         ]
       },
       "song": {
@@ -56,42 +78,56 @@
           "Singer": "Zendaya",
           "Where to listen": "Spotify, Apple Music, YouTube"
         }
-      }
+      },
+      "edits": [
+        {
+          "handle": "@voidzwckd",
+          "link": "https://www.tiktok.com/@voidzwckd/video/7697506106314067213",
+          "image": "images/edit-1.jpg"
+        },
+        {
+          "handle": "@_yovrztrvly",
+          "link": "https://www.tiktok.com/@_yovrztrvly/video/7694388563424660766",
+          "image": "images/edit-2.jpg"
+        },
+        {
+          "handle": "@madsrevival",
+          "link": "https://www.tiktok.com/@madsrevival/video/7632789235140939039",
+          "image": "images/edit-3.jpg"
+        },
+        {
+          "handle": "@soulstory189",
+          "link": "https://www.tiktok.com/@soulstory189/video/7696509645908692246",
+          "image": "images/edit-4.jpg"
+        }
+      ]
     },
     {
       "id": "2026-10",
       "label": "October 2026",
       "book": {
-        "title": "Sunrise on the Reaping",
+        "title": "Percy Jackson and the Olympians",
         "image": "images/2026-10-book.jpg",
         "info": {
-          "Summary": "A Hunger Games prequel set during the 50th Hunger Games, following a young Haymitch Abernathy.",
-          "Provider": "Scholastic",
-          "Release date": "March 2025",
+          "Summary": "A boy discovers he is the son of a Greek god and is thrown into a world of demigods, monsters, and quests.",
+          "Provider": "Disney Hyperion",
+          "Release date": "June 2005",
           "Where to buy": "Library, Local Bookstore, Amazon, Barnes and Noble",
-          "Genre": "Dystopian YA",
-          "Author": "Suzanne Collins"
-        },
-        "honorable": [
-          { "title": "Carmilla", "image": "images/2026-10-book-hm1.jpg" },
-          { "title": "Heated Rivalry", "image": "images/2026-10-book-hm2.jpg" }
-        ]
+          "Genre": "Fantasy, Middle Grade",
+          "Author": "Rick Riordan"
+        }
       },
       "show": {
-        "title": "Interview with the Vampire",
+        "title": "Sterling Point",
         "image": "images/2026-10-show.jpg",
         "info": {
-          "Summary": "Louis de Pointe du Lac tells the story of his immortal life, love, and loss to a journalist.",
-          "Provider": "AMC",
-          "Release date": "October 2022",
-          "Where to watch": "AMC+, Prime, Netflix",
-          "Genre": "Gothic Horror Drama",
-          "Creator": "Rolin Jones, based on the novel by Anne Rice"
-        },
-        "honorable": [
-          { "title": "Yellowjackets", "image": "images/2026-10-show-hm1.jpg" },
-          { "title": "Hannibal", "image": "images/2026-10-show-hm2.jpg" }
-        ]
+          "Summary": "A 17-year-old inherits her mysterious grandfather's island in Canada and uncovers family secrets, new friendships, and first romances.",
+          "Provider": "Prime Video",
+          "Release date": "August 5, 2026",
+          "Where to watch": "Prime Video",
+          "Genre": "Teen Drama, Mystery",
+          "Creator": "Megan Park"
+        }
       },
       "movie": {
         "title": "Clayface",
@@ -105,8 +141,14 @@
           "Director": "James Watkins"
         },
         "honorable": [
-          { "title": "Resident Evil", "image": "images/2026-10-movie-hm1.jpg" },
-          { "title": "Whalefall", "image": "images/2026-10-movie-hm2.jpg" }
+          {
+            "title": "Resident Evil",
+            "image": "images/2026-10-movie-hm1.jpg"
+          },
+          {
+            "title": "Whalefall",
+            "image": "images/2026-10-movie-hm2.jpg"
+          }
         ]
       },
       "song": {
