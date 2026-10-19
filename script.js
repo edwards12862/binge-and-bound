@@ -46,7 +46,7 @@ function imgFallback(img) {
     return;
   }
   const box = img.parentElement;
-  if (box.matches(".photo, .song-photo")) box.classList.add("is-empty");
+  if (box.matches(".photo, .song-photo, .edit-thumb")) box.classList.add("is-empty");
   img.remove();
 }
 
@@ -128,6 +128,31 @@ function songBlock(song) {
     </div>`;
 }
 
+// "Top edits": thumbnails that open the edit on TikTok in a new tab.
+// Add or change them in the "edits" list in months.json.
+function editsBlock(edits) {
+  if (!edits || edits.length === 0) return "";
+  const cards = edits
+    .map(
+      (e) => `
+        <a class="edit" href="${esc(e.link)}" target="_blank" rel="noopener" aria-label="Watch the edit by ${esc(e.handle)} on TikTok">
+          <span class="edit-thumb${e.image ? "" : " is-empty"}">
+            ${e.image ? `<img src="${esc(e.image)}" alt="" loading="lazy" onerror="imgFallback(this)">` : ""}
+            <span class="edit-play" aria-hidden="true"></span>
+          </span>
+          <span class="edit-handle">${esc(e.handle)}</span>
+        </a>`
+    )
+    .join("");
+  return `
+    <div class="edits">
+      <h2>Top edits</h2>
+      <p class="hint">Click an edit to watch it on TikTok.</p>
+      <div class="edit-grid">${cards}
+      </div>
+    </div>`;
+}
+
 // ----- The popup -----
 function getDialog() {
   let dlg = document.querySelector("#details");
@@ -191,7 +216,8 @@ async function renderThisMonth() {
         ${pickCard("book", "Book", m.book)}
         ${pickCard("show", "Show", m.show)}
       </div>
-      ${songBlock(m.song)}`;
+      ${songBlock(m.song)}
+      ${editsBlock(m.edits)}`;
 
     target.querySelectorAll(".title-btn").forEach((btn) =>
       btn.addEventListener("click", () => openDetails(btn.dataset.pick))
