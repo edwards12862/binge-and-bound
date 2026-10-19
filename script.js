@@ -70,6 +70,27 @@ function photoBox(cls, label, item) {
       </div>`;
 }
 
+// Small "Honorable Books / Shows / Movies" cards under a main pick.
+// They only need a title and an image (see "honorable" in months.json).
+function honorableBlock(label, items) {
+  if (!items || items.length === 0) return "";
+  const cards = items
+    .map(
+      (h) => `
+        <div class="hm">
+          ${photoBox("photo hm-photo", label, h)}
+          <p class="hm-title">${esc(h.title)}</p>
+        </div>`
+    )
+    .join("");
+  return `
+      <div class="honorable">
+        <p class="hm-label">Honorable ${label}s</p>
+        <div class="hm-grid">${cards}
+        </div>
+      </div>`;
+}
+
 // One card: photo, then the title (a button that opens the popup), then details.
 function pickCard(kind, label, item) {
   picks[kind] = { label, item };
@@ -79,6 +100,7 @@ function pickCard(kind, label, item) {
       <p class="kind">${label}</p>
       <h3><button type="button" class="title-btn" data-pick="${kind}" aria-haspopup="dialog">${esc(item.title)}</button></h3>
       <p class="by">${esc(byline(item))}</p>
+      ${honorableBlock(label, item.honorable)}
     </article>`;
 }
 
@@ -165,8 +187,8 @@ async function renderThisMonth() {
         <p class="hint">Click a title for the full details.</p>
       </div>
       <div class="picks">
-        ${pickCard("book", "Book", m.book)}
         ${pickCard("show", "Show", m.show)}
+        ${pickCard("book", "Book", m.book)}
         ${pickCard("movie", "Movie", m.movie)}
       </div>
       ${songBlock(m.song)}`;

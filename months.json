@@ -13,7 +13,17 @@
           "Where to buy": "Library, Local Bookstore, Amazon, Barnes and Noble",
           "Genre": "Dystopian YA",
           "Author": "Suzanne Collins"
-        }
+        },
+        "honorable": [
+          {
+            "title": "Carmilla",
+            "image": "images/2026-10-book-hm1.jpg"
+          },
+          {
+            "title": "Heated Rivalry",
+            "image": "images/2026-10-book-hm2.jpg"
+          }
+        ]
       },
       "show": {
         "title": "Interview with the Vampire",
@@ -25,7 +35,17 @@
           "Where to watch": "AMC+, Prime, Netflix",
           "Genre": "Gothic Horror Drama",
           "Creator": "Rolin Jones, based on the novel by Anne Rice"
-        }
+        },
+        "honorable": [
+          {
+            "title": "Yellowjackets",
+            "image": "images/2026-10-show-hm1.jpg"
+          },
+          {
+            "title": "Hannibal",
+            "image": "images/2026-10-show-hm2.jpg"
+          }
+        ]
       },
       "movie": {
         "title": "Clayface",
@@ -37,7 +57,17 @@
           "Where to watch": "In theaters!",
           "Genre": "Horror, Superhero",
           "Director": "James Watkins"
-        }
+        },
+        "honorable": [
+          {
+            "title": "Resident Evil",
+            "image": "images/2026-10-movie-hm1.jpg"
+          },
+          {
+            "title": "Whalefall",
+            "image": "images/2026-10-movie-hm2.jpg"
+          }
+        ]
       },
       "song": {
         "title": "Expectations (ft. Chappell Roan)",
