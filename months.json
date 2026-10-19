@@ -1,6 +1,64 @@
 {
   "months": [
     {
+      "id": "2026-11",
+      "label": "November 2026",
+      "book": {
+        "title": "Sunrise on the Reaping",
+        "image": "images/2026-11-book.jpg",
+        "info": {
+          "Summary": "A Hunger Games prequel set during the 50th Hunger Games, following a young Haymitch Abernathy.",
+          "Provider": "Scholastic",
+          "Release date": "March 2025",
+          "Where to buy": "Library, Local Bookstore, Amazon, Barnes and Noble",
+          "Genre": "Dystopian YA",
+          "Author": "Suzanne Collins"
+        }
+      },
+      "show": {
+        "title": "Blade Runner 2099",
+        "image": "images/2026-11-show.jpg",
+        "info": {
+          "Summary": "A limited series set decades after Blade Runner 2049, in a future no one controls.",
+          "Provider": "Prime Video",
+          "Release date": "November 25, 2026",
+          "Where to watch": "Prime Video",
+          "Genre": "Sci-Fi Drama",
+          "Creator": "Silka Luisa"
+        },
+        "honorable": [
+          { "title": "The Body", "image": "images/2026-11-show-hm1.jpg" },
+          { "title": "The Hunting Wives", "image": "images/2026-11-show-hm2.jpg" }
+        ]
+      },
+      "movie": {
+        "title": "The Hunger Games: Sunrise on the Reaping",
+        "image": "images/2026-11-movie.jpg",
+        "info": {
+          "Summary": "The film adaptation of the Hunger Games prequel, following a young Haymitch Abernathy through the 50th Hunger Games.",
+          "Provider": "Lionsgate",
+          "Release date": "November 20, 2026",
+          "Where to watch": "In theaters!",
+          "Genre": "Dystopian, Sci-Fi",
+          "Director": "Francis Lawrence"
+        },
+        "honorable": [
+          { "title": "How to Rob a Bank", "image": "images/2026-11-movie-hm1.jpg" },
+          { "title": "Pride & Prejudice", "image": "images/2026-11-movie-hm2.jpg" }
+        ]
+      },
+      "song": {
+        "title": "Replay",
+        "image": "images/2026-11-song.jpg",
+        "link": "",
+        "info": {
+          "Release date": "2013",
+          "Singer": "Zendaya",
+          "Where to listen": "Spotify, Apple Music, YouTube"
+        }
+      }
+    },
+    {
       "id": "2026-10",
       "label": "October 2026",
       "book": {
@@ -15,14 +73,8 @@
           "Author": "Suzanne Collins"
         },
         "honorable": [
-          {
-            "title": "Carmilla",
-            "image": "images/2026-10-book-hm1.jpg"
-          },
-          {
-            "title": "Heated Rivalry",
-            "image": "images/2026-10-book-hm2.jpg"
-          }
+          { "title": "Carmilla", "image": "images/2026-10-book-hm1.jpg" },
+          { "title": "Heated Rivalry", "image": "images/2026-10-book-hm2.jpg" }
         ]
       },
       "show": {
@@ -37,14 +89,8 @@
           "Creator": "Rolin Jones, based on the novel by Anne Rice"
         },
         "honorable": [
-          {
-            "title": "Yellowjackets",
-            "image": "images/2026-10-show-hm1.jpg"
-          },
-          {
-            "title": "Hannibal",
-            "image": "images/2026-10-show-hm2.jpg"
-          }
+          { "title": "Yellowjackets", "image": "images/2026-10-show-hm1.jpg" },
+          { "title": "Hannibal", "image": "images/2026-10-show-hm2.jpg" }
         ]
       },
       "movie": {
@@ -59,14 +105,8 @@
           "Director": "James Watkins"
         },
         "honorable": [
-          {
-            "title": "Resident Evil",
-            "image": "images/2026-10-movie-hm1.jpg"
-          },
-          {
-            "title": "Whalefall",
-            "image": "images/2026-10-movie-hm2.jpg"
-          }
+          { "title": "Resident Evil", "image": "images/2026-10-movie-hm1.jpg" },
+          { "title": "Whalefall", "image": "images/2026-10-movie-hm2.jpg" }
         ]
       },
       "song": {
@@ -101,39 +141,6 @@
           "image": "images/edit-4.jpg"
         }
       ]
-    },
-    {
-      "id": "2026-10",
-      "label": "October 2026",
-      "book": {
-        "title": "Sunrise on the Reaping",
-        "image": "images/2026-10-book.jpg",
-        "info": {
-          "Author": "Suzanne Collins"
-        }
-      },
-      "show": {
-        "title": "Interview with the Vampire",
-        "image": "images/2026-10-show.jpg",
-        "info": {
-          "Creator": "Rolin Jones, based on the novel by Anne Rice"
-        }
-      },
-      "movie": {
-        "title": "Clayface",
-        "image": "images/2026-10-movie.jpg",
-        "info": {
-          "Creator": "David S. Goyer"
-        }
-      },
-      "song": {
-        "title": "Expectations (ft. Chappell Roan)",
-        "image": "images/2026-10-song.jpg",
-        "link": "",
-        "info": {
-          "Singer": "Olivia Rodrigo, Chappell Roan"
-        }
-      }
     }
   ]
 }
