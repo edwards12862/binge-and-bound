@@ -17,14 +17,22 @@ function esc(value) {
     .replace(/"/g, "&quot;");
 }
 
-// Reads data/months.json and returns the list of months.
+// Reads months.json and returns the list of months.
 // The newest month is first in the file, so months[0] is "this month".
+// Looks in the main folder first, then in data/. The "no-store" setting and
+// the ?v= number stop the browser from showing an old saved copy.
 async function loadMonths() {
-  // Looks in data/ first, then in the main folder, so it works either way
-  let response = await fetch("data/months.json");
-  if (!response.ok) response = await fetch("months.json");
-  if (!response.ok) {
-    throw new Error("Could not find months.json (put it in the data folder)");
+  const stamp = Date.now();
+  const paths = ["months.json", "data/months.json"];
+  let response = null;
+  for (const path of paths) {
+    try {
+      const r = await fetch(path + "?v=" + stamp, { cache: "no-store" });
+      if (r.ok) { response = r; console.log("Loaded", path); break; }
+    } catch (e) { /* try the next path */ }
+  }
+  if (!response) {
+    throw new Error("Could not find months.json (put it next to index.html)");
   }
   const data = await response.json();
   return data.months;
