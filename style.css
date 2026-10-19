@@ -227,6 +227,23 @@ a { color: var(--blue); text-underline-offset: 0.2em; }
 .pick .by { margin: 0; font-style: italic; font-size: 0.95rem; }
 
 
+/* Lines up each section across the three columns (poster, label, title,
+   author, honorable mentions) so the honorable mentions sit at the same height */
+@media (min-width: 761px) {
+  @supports (grid-template-rows: subgrid) {
+    .picks { row-gap: 0; }
+    .pick {
+      display: grid;
+      grid-template-rows: subgrid;
+      grid-row: span 5;
+      row-gap: 0;
+      align-items: start;
+    }
+    .pick .kind { justify-self: center; }
+  }
+}
+
+
 /* ---------- Honorable mentions (smaller cards under each pick) ---------- */
 
 .honorable {

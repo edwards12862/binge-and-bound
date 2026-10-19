@@ -187,9 +187,9 @@ async function renderThisMonth() {
         <p class="hint">Click a title for the full details.</p>
       </div>
       <div class="picks">
-        ${pickCard("show", "Show", m.show)}
-        ${pickCard("book", "Book", m.book)}
         ${pickCard("movie", "Movie", m.movie)}
+        ${pickCard("book", "Book", m.book)}
+        ${pickCard("show", "Show", m.show)}
       </div>
       ${songBlock(m.song)}`;
 
