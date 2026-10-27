@@ -1,14 +1,8 @@
-// ============================================================
-// Binge & Bound: script.js
-// This one file powers the home and past months pages. Each function below
-// checks whether its page is open, and only runs if it is.
-// ============================================================
 
 
 // ---------- 1. SMALL HELPERS ----------
 
-// Makes text safe to drop into HTML, so a title like "Tom & Jerry"
-// shows up correctly instead of breaking the page.
+
 function esc(value) {
   return String(value ?? "")
     .replace(/&/g, "&amp;")
@@ -17,10 +11,7 @@ function esc(value) {
     .replace(/"/g, "&quot;");
 }
 
-// Reads months.json and returns the list of months.
-// The newest month is first in the file, so months[0] is "this month".
-// Looks in the main folder first, then in data/. The "no-store" setting and
-// the ?v= number stop the browser from showing an old saved copy.
+
 async function loadMonths() {
   const stamp = Date.now();
   const paths = ["months.json", "data/months.json"];
@@ -38,15 +29,13 @@ async function loadMonths() {
   return data.months;
 }
 
-// The line under each title: author, creator, director, or singer from the
-// info box (falls back to the provider if none is filled in).
+
 function byline(item) {
   const i = item.info || {};
   return i.Author || i.Creator || i.Director || i.Singer || i.Provider || "";
 }
 
-// If an image can't load from images/, try the main folder, then give up
-// and show the labeled placeholder box instead.
+
 function imgFallback(img) {
   if (!img.dataset.tried) {
     img.dataset.tried = "1";
@@ -61,8 +50,7 @@ function imgFallback(img) {
 
 // ---------- 3. HOME PAGE: THIS MONTH ----------
 
-// Every pick (book, show, movie, song) is stored here so the popup
-// can look it up when its title is clicked.
+
 const picks = {};
 
 function photoBox(cls, label, item) {
@@ -79,7 +67,7 @@ function photoBox(cls, label, item) {
 }
 
 // Small "Honorable Books / Shows / Movies" cards under a main pick.
-// They only need a title and an image (see "honorable" in months.json).
+
 function honorableBlock(label, items) {
   if (!items || items.length === 0) return "";
   const cards = items
@@ -137,7 +125,7 @@ function songBlock(song) {
 }
 
 // "Top edits": thumbnails that open the edit on TikTok in a new tab.
-// Add or change them in the "edits" list in months.json.
+
 function editsBlock(edits) {
   if (!edits || edits.length === 0) return "";
   const cards = edits
@@ -169,7 +157,6 @@ function getDialog() {
   dlg.id = "details";
   dlg.setAttribute("aria-labelledby", "details-title");
   document.body.appendChild(dlg);
-  // Click on the dark backdrop closes it
   dlg.addEventListener("click", (e) => { if (e.target === dlg) dlg.close(); });
   return dlg;
 }
@@ -178,7 +165,7 @@ function openDetails(kind) {
   const { label, item } = picks[kind];
   const dlg = getDialog();
 
-  // Summary goes at the top, everything else filled in goes in the list below
+ 
   const info = item.info || {};
   const summary = info.Summary || "";
   const rows = Object.entries(info)
@@ -242,11 +229,11 @@ async function renderThisMonth() {
 
 async function renderPastMonths() {
   const target = document.querySelector("#past-months");
-  if (!target) return; // not the past months page
+  if (!target) return; 
 
   try {
     const months = await loadMonths();
-    const past = months.slice(1); // everything except the newest month
+    const past = months.slice(1); 
 
     if (past.length === 0) {
       target.innerHTML =

@@ -1,19 +1,15 @@
-/* ============================================================
-   Binge & Bound: style.css
-   Blue theme. Colors and fonts live in :root. Change them
-   there and the whole site updates.
-   ============================================================ */
+
 
 :root {
   /* Colors */
-  --paper: #e6eefb;   /* page background, pale blue */
-  --navy: #0a1f5c;    /* site title, text, darkest band */
-  --blue: #1d4ed8;    /* links, book label */
-  --sky: #9fc3f7;     /* show label, song strip */
-  --mist: #cfe0fa;    /* text on navy */
+  --paper: #e6eefb;   /* page background */
+  --navy: #0a1f5c;    /* site title, text */
+  --blue: #1d4ed8;    /* links */
+  --sky: #9fc3f7;     /* show label */
+  --mist: #cfe0fa;    /* text */
   --white: #ffffff;
 
-  /* Fonts: editorial serif for titles, Courier for everything else */
+  /* Fonts */
   --display: "Playfair Display", Georgia, "Times New Roman", serif;
   --text: "Courier Prime", "Courier New", Courier, monospace;
 
@@ -42,7 +38,7 @@ a { color: var(--blue); text-underline-offset: 0.2em; }
 .skip-link:focus { left: 0.5rem; }
 
 
-/* ---------- Header bar and navigation ---------- */
+/* ---------- Header bar and nav ---------- */
 
 .site-header {
   display: flex; flex-wrap: wrap; align-items: center;
@@ -63,7 +59,7 @@ a { color: var(--blue); text-underline-offset: 0.2em; }
   text-decoration: none;
 }
 
-/* The clapperboard, book, and TV icons to the right of the name */
+/* The clapperboard, book, and TV icons direction */
 .brand-icons { display: block; height: 1.6rem; width: auto; }
 
 .site-header nav { display: flex; flex-wrap: wrap; gap: 0.4rem 1.75rem; }
@@ -113,7 +109,7 @@ a { color: var(--blue); text-underline-offset: 0.2em; }
 }
 
 
-/* Blue ribbon banner behind the site title */
+/* banner */
 .hero { overflow-x: clip; }
 
 .ribbon {
@@ -127,7 +123,7 @@ a { color: var(--blue); text-underline-offset: 0.2em; }
   box-shadow: 0 8px 0 var(--blue);
 }
 
-/* The folded, swallow-tailed ends of the ribbon */
+
 .ribbon::before,
 .ribbon::after {
   content: "";
@@ -172,7 +168,7 @@ a { color: var(--blue); text-underline-offset: 0.2em; }
 
 .pick { text-align: center; }
 
-/* Poster-shaped photo box */
+/* Posters */
 .photo {
   display: flex; align-items: center; justify-content: center;
   width: 100%; aspect-ratio: 2 / 3; overflow: hidden;
@@ -183,7 +179,7 @@ a { color: var(--blue); text-underline-offset: 0.2em; }
 }
 .photo img { display: block; width: 100%; height: 100%; object-fit: cover; }
 
-/* Empty photo boxes show the title and the file to add */
+/* Empty photo boxes */
 .photo.is-empty, .song-photo.is-empty {
   flex-direction: column; gap: 0.5rem; padding: 1rem; text-align: center;
   background: rgba(255, 255, 255, 0.55);
@@ -207,7 +203,7 @@ a { color: var(--blue); text-underline-offset: 0.2em; }
 
 .pick h3 { margin: 0.15rem 0 0.3rem; line-height: 1.15; }
 
-/* The clickable title under each photo */
+/* The clickable title */
 .title-btn {
   padding: 0; margin: 0;
   background: none; border: 0; cursor: pointer;
@@ -227,8 +223,7 @@ a { color: var(--blue); text-underline-offset: 0.2em; }
 .pick .by { margin: 0; font-style: italic; font-size: 0.95rem; }
 
 
-/* Lines up each section across the three columns (poster, label, title,
-   author, honorable mentions) so the honorable mentions sit at the same height */
+/* Lining up */
 @media (min-width: 761px) {
   @supports (grid-template-rows: subgrid) {
     .picks { row-gap: 0; }
@@ -244,7 +239,7 @@ a { color: var(--blue); text-underline-offset: 0.2em; }
 }
 
 
-/* ---------- Honorable mentions (smaller cards under each pick) ---------- */
+/* ---------- Honorable mentions ---------- */
 
 .honorable {
   margin-top: 1.75rem;
@@ -296,7 +291,7 @@ a { color: var(--blue); text-underline-offset: 0.2em; }
   text-align: center;
 }
 
-/* Four-pointed stars on both sides of the song photo */
+/* Four-pointed stars */
 .song-photo-wrap {
   display: flex;
   align-items: center;
@@ -338,13 +333,13 @@ a { color: var(--blue); text-underline-offset: 0.2em; }
 }
 .song-link:hover { background: var(--blue); }
 
-/* Space below the song box now that the meetup section is gone */
+
 .song { margin-bottom: 4rem; }
 
 
 /* ---------- Top edits ---------- */
 
-.edits {
+ .edits {
   max-width: 72rem;
   margin: 0 auto;
   padding: 0 var(--gutter) 4rem;
