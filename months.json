@@ -138,29 +138,7 @@
           "Singer": "Olivia Rodrigo, Chappell Roan",
           "Where to listen": "Spotify, Apple Music, YouTube"
         }
-      },
-      "edits": [
-        {
-          "handle": "@voidzwckd",
-          "link": "https://www.tiktok.com/@voidzwckd/video/7697506106314067213",
-          "image": "images/edit-1.jpg"
-        },
-        {
-          "handle": "@_yovrztrvly",
-          "link": "https://www.tiktok.com/@_yovrztrvly/video/7694388563424660766",
-          "image": "images/edit-2.jpg"
-        },
-        {
-          "handle": "@madsrevival",
-          "link": "https://www.tiktok.com/@madsrevival/video/7632789235140939039",
-          "image": "images/edit-3.jpg"
-        },
-        {
-          "handle": "@soulstory189",
-          "link": "https://www.tiktok.com/@soulstory189/video/7696509645908692246",
-          "image": "images/edit-4.jpg"
-        }
-      ]
+      }
     }
   ]
 }

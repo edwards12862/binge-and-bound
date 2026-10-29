@@ -454,7 +454,6 @@ dialog#details::backdrop { background: rgba(10, 31, 92, 0.65); }
 }
 
 @media (max-width: 760px) {
-  .edit-grid { grid-template-columns: repeat(2, minmax(0, 1fr)); }
   .picks { grid-template-columns: 1fr; max-width: 22rem; }
   .past-row { grid-template-columns: 1fr; }
   .d-grid { grid-template-columns: 1fr; }

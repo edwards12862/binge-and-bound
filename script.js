@@ -43,7 +43,7 @@ function imgFallback(img) {
     return;
   }
   const box = img.parentElement;
-  if (box.matches(".photo, .song-photo, .edit-thumb")) box.classList.add("is-empty");
+  if (box.matches(".photo, .song-photo")) box.classList.add("is-empty");
   img.remove();
 }
 
@@ -188,8 +188,7 @@ async function renderThisMonth() {
         ${pickCard("book", "Book", m.book)}
         ${pickCard("show", "Show", m.show)}
       </div>
-      ${songBlock(m.song)}
-      ${editsBlock(m.edits)}`;
+      ${songBlock(m.song)}`;
 
     target.querySelectorAll(".title-btn").forEach((btn) =>
       btn.addEventListener("click", () => openDetails(btn.dataset.pick))
